@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "road_road", "road_road\road_road.csproj", "{2E939ECE-A3C3-4EBD-ACE7-58DD053AA02D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E939ECE-A3C3-4EBD-ACE7-58DD053AA02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E939ECE-A3C3-4EBD-ACE7-58DD053AA02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E939ECE-A3C3-4EBD-ACE7-58DD053AA02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E939ECE-A3C3-4EBD-ACE7-58DD053AA02D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2941C585-E9EC-4FAE-BDE5-E23FEF4DDA8C}
+	EndGlobalSection
+EndGlobal
