@@ -32,7 +32,7 @@ namespace road_road.View
             }
             else
             {
-                MessageBox.Show("Не правельно введён логин или пароль");
+                MessageBox.Show("Неправильно введён логин или пароль");
             }
         }
 

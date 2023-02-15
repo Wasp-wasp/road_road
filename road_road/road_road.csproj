@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Admin\" />
+    <Folder Include="resources\" />
   </ItemGroup>
 
 </Project>
