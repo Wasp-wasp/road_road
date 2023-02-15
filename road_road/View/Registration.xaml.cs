@@ -15,9 +15,10 @@ using road_road.Data.Models;
 
 namespace road_road.View
 {
-    public partial class registration : Window
+    //работа с интерфейсом
+    public partial class Registration : Window
     {
-        public registration()
+        public Registration()
         {
             InitializeComponent();
         }
@@ -31,8 +32,9 @@ namespace road_road.View
 
         private void But_reg(object sender, RoutedEventArgs e)
         {
-            Users users = new Users();
-            users.Login = TB_name.Text.Trim();
+            Users user= new Users();
+            user.Login = TB_name.Text.Trim();
+            AuthenticationService.Registration(user);
             //TODO
         }
     }

@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace road_road.View
 {
-    /// <summary>
-    /// Логика взаимодействия для Main.xaml
-    /// </summary>
+
     public partial class Main : Window
     {
         public Main()

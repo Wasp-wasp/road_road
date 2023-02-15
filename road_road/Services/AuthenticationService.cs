@@ -1,9 +1,11 @@
 ﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using road_road.Data.Models;
 
 namespace road_road.View
 {
-    class AuthenticationController
+    //работа с бд
+    class AuthenticationService
     {
         static private DBContext context = new DBContext();
         public static bool Avtorisation(string login, string pass)
@@ -15,7 +17,8 @@ namespace road_road.View
         
         public static bool Registration(Users users)
         {
-            //TODO
+            context.Users.Add(users);
+            context.SaveChanges();
             return true;
         }
     }

@@ -13,7 +13,7 @@ namespace road_road.View
         
         private void BC_enter(object sender, RoutedEventArgs e)
         {
-            if (AuthenticationController.Avtorisation(L_login.Text.Trim(), L_password.Text.Trim()))
+            if (AuthenticationService.Avtorisation(L_login.Text.Trim(), L_password.Text.Trim()))
             {
                 Admin account = new Admin();
                 account.Show();
@@ -27,7 +27,7 @@ namespace road_road.View
 
         private void BC_reg(object sender, RoutedEventArgs e)
         {
-            registration reg = new registration();
+            Registration reg = new Registration();
             reg.Show();
             this.Close();
         }
