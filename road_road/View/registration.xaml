@@ -32,7 +32,7 @@
         <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="32,383,0,0" VerticalAlignment="Top" Width="125"/>
 
 
-        <Button Content="Зарегестрироваться" HorizontalAlignment="Center" Margin="0,458,0,0" VerticalAlignment="Top"/>
+        <Button Content="Зарегестрироваться" HorizontalAlignment="Center" Margin="0,458,0,0" VerticalAlignment="Top" Click="But_reg"/>
         <Button Content="Вход" HorizontalAlignment="Center" Margin="0,511,0,0" VerticalAlignment="Top" Click="But_enter"/>
 
     </Grid>
