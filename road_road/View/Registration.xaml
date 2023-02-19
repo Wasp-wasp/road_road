@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:road_road.View"
         mc:Ignorable="d"
-        Title="registration" Height="598" Width="260">
+        Title="registration" Height="598" Width="458">
     <Grid>
         <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="32,56,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
         <Label Content="Иd" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" Width="84"/>
