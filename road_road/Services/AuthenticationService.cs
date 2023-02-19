@@ -10,11 +10,21 @@ namespace road_road.View
     class AuthenticationService
     {
         static private DBContext context = new DBContext();
-        public static bool Avtorisation(string login, string pass)
+        public static bool Autorisation(string login, string pass)
         {
             var user = context.Users.SingleOrDefault(x => x.Login == login && x.Password == pass);
             if (user != null) return true;
             return false;
+        }
+        public static bool Login_UQ(string login){
+
+            var log = context.Users.Where(x => x.Login == login).SingleOrDefault();
+            if (log == null) return true;
+            return false;
+
+            //var log = context.Users.SingleOrDefault(x => x.Login != login);
+            //if (log != null) return true;
+            //return false;
         }
 
         public static IEnumerable<Genders> GenderID()

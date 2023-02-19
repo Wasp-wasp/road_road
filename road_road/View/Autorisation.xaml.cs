@@ -13,7 +13,7 @@ namespace road_road.View
         
         private void BC_enter(object sender, RoutedEventArgs e)
         {
-            if (AuthenticationService.Avtorisation(L_login.Text.Trim(), L_password.Text.Trim()))
+            if (AuthenticationService.Autorisation(L_login.Text.Trim(), L_password.Text.Trim()))
             {
                 Account account = new Account();
                 account.Show();
@@ -24,6 +24,8 @@ namespace road_road.View
                 MessageBox.Show("Неправильно введён логин или пароль");
             }
         }
+
+        
 
         private void BC_reg(object sender, RoutedEventArgs e)
         {

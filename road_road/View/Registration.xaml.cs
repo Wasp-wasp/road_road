@@ -26,6 +26,7 @@ namespace road_road.View
             GenderID();
         }
 
+
         private void GenderID()
         {
             var gender = AuthenticationService.GenderID();
@@ -43,7 +44,23 @@ namespace road_road.View
 
         private void But_reg(object sender, RoutedEventArgs e)
         {
-            Users user= new Users();
+            if (AuthenticationService.Login_UQ(TB_login.Text.Trim()))
+            {
+                Users user = new Users();
+                user.Login = TB_login.Text.Trim();
+                user.FirstName = TB_name.Text.Trim();
+                user.SecondName = TB_secondname.Text.Trim();
+                user.LastName = TB_patronomic.Text.Trim();
+                user.Password = TB_password.Text.Trim();
+
+                user.IdGender = CB_gender.SelectedIndex + 1;
+            }
+            else
+            {
+                MessageBox.Show("Неправильно введён логин или пароль");
+            }
+            /*
+            Users user = new Users();
             user.Login = TB_login.Text.Trim();
             user.FirstName = TB_name.Text.Trim();
             user.SecondName = TB_secondname.Text.Trim();
@@ -52,7 +69,7 @@ namespace road_road.View
 
             user.IdGender = CB_gender.SelectedIndex + 1;
 
-            AuthenticationService.Registration(user);
+            AuthenticationService.Registration(user);*/
             //TODO
         }
     }
