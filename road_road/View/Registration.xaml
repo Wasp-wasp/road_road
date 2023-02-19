@@ -8,7 +8,7 @@
         Title="registration" Height="598" Width="260">
     <Grid>
         <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="32,56,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <Label Content="Имя" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Иd" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" Width="84"/>
 
         <TextBox x:Name="TB_secondname" HorizontalAlignment="Left" Margin="32,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Width="84"/>
