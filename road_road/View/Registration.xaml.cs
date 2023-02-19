@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +23,15 @@ namespace road_road.View
         public Registration()
         {
             InitializeComponent();
+            GenderID();
+        }
+
+        private void GenderID()
+        {
+            var gender = AuthenticationService.GenderID();
+
+            foreach (var i in gender)
+                CB_gender.Items.Add(i.NameOfGender);
         }
         
         private void But_enter(object sender, RoutedEventArgs e)
@@ -33,7 +44,14 @@ namespace road_road.View
         private void But_reg(object sender, RoutedEventArgs e)
         {
             Users user= new Users();
-            user.Login = TB_name.Text.Trim();
+            user.Login = TB_login.Text.Trim();
+            user.FirstName = TB_name.Text.Trim();
+            user.SecondName = TB_secondname.Text.Trim();
+            user.LastName = TB_patronomic.Text.Trim();
+            user.Password = TB_password.Text.Trim();
+
+            user.IdGender = CB_gender.SelectedIndex + 1;
+
             AuthenticationService.Registration(user);
             //TODO
         }

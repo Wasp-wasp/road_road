@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using road_road.Data.Models;
 
@@ -14,7 +16,13 @@ namespace road_road.View
             if (user != null) return true;
             return false;
         }
-        
+
+        public static IEnumerable<Genders> GenderID()
+        {
+            var gender = context.Genders.ToList();
+            return gender;
+        }
+
         public static bool Registration(Users users)
         {
             context.Users.Add(users);

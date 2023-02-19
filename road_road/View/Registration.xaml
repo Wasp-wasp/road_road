@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:road_road.View"
         mc:Ignorable="d"
-        Title="registration" Height="430" Width="458">
+        Title="registration" Height="463" Width="458">
     <Grid>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" Width="84"/>
         <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="32,56,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
@@ -13,13 +13,16 @@
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Width="84"/>
         <TextBox x:Name="TB_secondname" HorizontalAlignment="Left" Margin="32,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
 
-        <Label Content="Отчество" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Отчество (при наличии)" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top" Width="145"/>
         <TextBox x:Name="TB_patronomic" HorizontalAlignment="Left" Margin="32,169,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="32,199,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox x:Name="TB_login" HorizontalAlignment="Left" Margin="32,228,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
 
 
 
         <Label Content="Пол" HorizontalAlignment="Left" Margin="250,27,0,0" VerticalAlignment="Top" Width="84"/>
-        <ComboBox x:Name="CB_gender" HorizontalAlignment="Left" Margin="250,56,0,0" Text="" VerticalAlignment="Top" Width="190"/>
+        <ComboBox x:Name="CB_gender" HorizontalAlignment="Left" Margin="250,56,0,0" Text="" VerticalAlignment="Top" Width="190" SelectedItem="мужской"/>
 
         <Label Content="Почта" HorizontalAlignment="Left" Margin="250,86,0,0" VerticalAlignment="Top" Width="84"/>
         <TextBox x:Name="TB_mail" HorizontalAlignment="Left" Margin="250,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
@@ -34,6 +37,6 @@
 
         <Button Content="Зарегестрироваться" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Click="But_reg"/>
         <Button Content="Вход" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Click="But_enter"/>
-
+ 
     </Grid>
 </Window>

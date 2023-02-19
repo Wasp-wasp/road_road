@@ -7,12 +7,12 @@ using road_road.Data.Models;
 namespace road_road.View
 {
     /// <summary>
-    /// Логика взаимодействия для Admin.xaml
+    /// Логика взаимодействия для Account.xaml
     /// </summary>
-    public partial class Admin : Window
+    public partial class Account : Window
     {
  
-        public Admin()
+        public Account()
         {
             InitializeComponent();
         }
