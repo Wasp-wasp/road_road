@@ -62,18 +62,8 @@ namespace road_road.View
             }
             else
             {
-                MessageBox.Show("Неправильно введён логин или пароль");
+                MessageBox.Show("Логин занят");
             }
-            /*
-            Users user = new Users();
-            user.Login = TB_login.Text.Trim();
-            user.FirstName = TB_name.Text.Trim();
-            user.SecondName = TB_secondname.Text.Trim();
-            user.LastName = TB_patronomic.Text.Trim();
-            user.Password = TB_password.Text.Trim();
-
-            user.IdGender = CB_gender.SelectedIndex + 1;*/
-
             
             //TODO
         }
