@@ -11,7 +11,7 @@
         <Label Content="Имя" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" Width="84"/>
 
         <TextBox x:Name="TB_secondname" HorizontalAlignment="Left" Margin="32,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Фа" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Width="84"/>
 
         <TextBox x:Name="patronomic" HorizontalAlignment="Left" Margin="32,169,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
         <Label Content="Отчеств" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top" Width="84"/>
