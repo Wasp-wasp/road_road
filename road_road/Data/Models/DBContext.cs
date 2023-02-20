@@ -41,7 +41,7 @@ namespace road_road.Data.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("database=ro;data source=localhost;user id=root;password=1111", x => x.ServerVersion("8.0.31-mysql"));
+                optionsBuilder.UseMySql("database=ro;data source=localhost;user id=root;password=12345", x => x.ServerVersion("8.0.31-mysql"));
             }
         }
 
