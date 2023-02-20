@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
@@ -16,11 +17,13 @@ namespace road_road.View
             if (user != null) return true;
             return false;
         }
-        public static void Load_data(string login)
+        public static string Load_data(string login)
         {
-            var user = context.Users.AsNoTracking()
-                .Include(user => user.Login == login);
+            var user = context.Users.Where(x => x.Login == login).AsNoTracking();
                 
+                Console.WriteLine(user);
+                return user.ToString();
+
         }
 
         public static bool Login_UQ(string login){

@@ -15,7 +15,7 @@ namespace road_road.View
         {
             if (AuthenticationService.Autorisation(L_login.Text.Trim(), L_password.Text.Trim()))
             {
-                Account account = new Account();
+                Account account = new Account(L_login.Text.Trim());
                 account.Show();
                 this.Close();
             }

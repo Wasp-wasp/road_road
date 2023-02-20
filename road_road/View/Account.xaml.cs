@@ -15,6 +15,7 @@ namespace road_road.View
         public Account(string login)
         {
             InitializeComponent();
+            TB_login.Text = login;
         }
 
         private void but_main(object sender, RoutedEventArgs e)
