@@ -49,6 +49,9 @@ namespace road_road.View
             TB_patronomic.Text = user.LastName;
             TB_gender.Text = gender.NameOfGender;
             TB_role.Text = user.Password;
+            TB_mail.Text = user.EMail;
+            TB_telephone.Text = user.Telephone;
+
         }
 
 
