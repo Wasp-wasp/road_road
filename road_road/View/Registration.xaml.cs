@@ -54,6 +54,11 @@ namespace road_road.View
                 user.Password = TB_password.Text.Trim();
 
                 user.IdGender = CB_gender.SelectedIndex + 1;
+                AuthenticationService.Registration(user);
+
+                Account account = new Account(user.Login);
+                account.Show();
+                this.Close();
             }
             else
             {
@@ -67,9 +72,9 @@ namespace road_road.View
             user.LastName = TB_patronomic.Text.Trim();
             user.Password = TB_password.Text.Trim();
 
-            user.IdGender = CB_gender.SelectedIndex + 1;
+            user.IdGender = CB_gender.SelectedIndex + 1;*/
 
-            AuthenticationService.Registration(user);*/
+            
             //TODO
         }
     }

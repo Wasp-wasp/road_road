@@ -12,7 +12,7 @@ namespace road_road.View
     public partial class Account : Window
     {
  
-        public Account()
+        public Account(string login)
         {
             InitializeComponent();
         }
@@ -25,6 +25,12 @@ namespace road_road.View
 
         }
 
+        private void Load_data()
+        {
+            //AuthenticationService.Login_UQ(TB_login.Text.Trim());
+            Users user = new Users();
+            TB_login.Text = user.Login;
+        }
 
 
         
