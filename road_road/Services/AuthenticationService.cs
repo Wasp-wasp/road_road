@@ -19,15 +19,12 @@ namespace road_road.View
         }
         public static string Load_data(string login)
         {
-            var user = context.Users.Where(x => x.Login == login).AsNoTracking();
-                
-                Console.WriteLine(user);
-                return user.ToString();
-
+            var user = context.Users.SingleOrDefault(x => x.Login == login);
+            return user.ToString();
         }
 
-        public static bool Login_UQ(string login){
-
+        public static bool Login_UQ(string login)
+        {
             var log = context.Users.Where(x => x.Login == login).SingleOrDefault();
             if (log == null) return true;
             return false;

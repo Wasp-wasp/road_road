@@ -6,6 +6,7 @@ namespace road_road.View
 {
     public partial class Autorisation : Window
     {
+        string login;
         public Autorisation()
         {
             InitializeComponent();
@@ -13,9 +14,10 @@ namespace road_road.View
         
         private void BC_enter(object sender, RoutedEventArgs e)
         {
-            if (AuthenticationService.Autorisation(L_login.Text.Trim(), L_password.Text.Trim()))
-            {
-                Account account = new Account(L_login.Text.Trim());
+            login = L_login.Text.Trim();
+            if (AuthenticationService.Autorisation(login, L_password.Text.Trim()))
+            {                
+                Account account = new Account(login);
                 account.Show();
                 this.Close();
             }

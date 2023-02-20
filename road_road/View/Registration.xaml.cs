@@ -56,7 +56,7 @@ namespace road_road.View
                 user.IdGender = CB_gender.SelectedIndex + 1;
                 AuthenticationService.Registration(user);
 
-                Account account = new Account(user.Login);
+                Account account = new Account(TB_login.Text);
                 account.Show();
                 this.Close();
             }
@@ -64,18 +64,7 @@ namespace road_road.View
             {
                 MessageBox.Show("Неправильно введён логин или пароль");
             }
-            /*
-            Users user = new Users();
-            user.Login = TB_login.Text.Trim();
-            user.FirstName = TB_name.Text.Trim();
-            user.SecondName = TB_secondname.Text.Trim();
-            user.LastName = TB_patronomic.Text.Trim();
-            user.Password = TB_password.Text.Trim();
-
-            user.IdGender = CB_gender.SelectedIndex + 1;
-
-            AuthenticationService.Registration(user);*/
-            //TODO
+            
         }
     }
 }
