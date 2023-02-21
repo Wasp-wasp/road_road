@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using road_road.Data.Models;
+using Z.EntityFramework.Plus;
 
 namespace road_road.View
 {
@@ -44,6 +45,13 @@ namespace road_road.View
         {
             context.Users.Add(users);
             context.SaveChanges();
+            return true;
+        }
+
+        public static bool Edit_Profile(Users users, string login)
+        {
+            var log = context.Users.Where(x => x.Login == login).SingleOrDefault();
+            context.Users.Update(users);
             return true;
         }
     }

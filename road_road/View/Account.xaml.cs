@@ -61,7 +61,15 @@ namespace road_road.View
 
         private void But_change_Click(object sender, RoutedEventArgs e)
         {
+            Users user = new Users();
+            user.Login = TB_login.Text.Trim();
+            user.FirstName = TB_name.Text.Trim();
+            user.SecondName = TB_secondname.Text.Trim();
+            user.LastName = TB_patronomic.Text.Trim();
+            user.Password = TB_role.Text.Trim();
 
+            user.IdGender = CB_gender.SelectedIndex + 1;
+            AuthenticationService.Edit_Profile(user, log);
 
 
         }
