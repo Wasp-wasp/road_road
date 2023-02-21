@@ -35,5 +35,12 @@ namespace road_road.View
             reg.Show();
             this.Close();
         }
+
+        private void BC_admin(object sender, RoutedEventArgs e)
+        {
+            Admin admin = new Admin();
+            admin.Show();
+            this.Close();
+        }
     }
 }
