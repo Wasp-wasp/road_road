@@ -21,8 +21,8 @@ namespace road_road.View
             InitializeComponent();
             //TB_login.Text = login;
             log = login;
+            GenderID();
             Load_data();
-             
         }
 
 
@@ -41,22 +41,29 @@ namespace road_road.View
             var user = context.Users.SingleOrDefault(x => x.Login == log);
             int? genderInt = user.IdGender;
             var gender = context.Genders.Where(x => x.IdGender == genderInt).SingleOrDefault();
-            
-
             TB_login.Text = user.Login;
             TB_name.Text = user.FirstName;
             TB_secondname.Text = user.SecondName;
             TB_patronomic.Text = user.LastName;
-            TB_gender.Text = gender.NameOfGender;
+            CB_gender.Text = gender.NameOfGender;
             TB_role.Text = user.Password;
             TB_mail.Text = user.EMail;
             TB_telephone.Text = user.Telephone;
-
         }
 
+        private void GenderID()
+        {
+            var gender = AuthenticationService.GenderID();
 
-        
+            foreach (var i in gender)
+                CB_gender.Items.Add(i.NameOfGender);
+        }
 
-        
+        private void But_change_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+        }
     }
 }
