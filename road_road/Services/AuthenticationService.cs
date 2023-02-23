@@ -18,11 +18,12 @@ namespace road_road.View
             if (user != null) return true;
             return false;
         }
-        public static string Load_data(string login)
+
+        /*public static string Load_data(string login)
         {
             var user = context.Users.SingleOrDefault(x => x.Login == login);
             return user.ToString();
-        }
+        }*/
 
         public static bool Login_UQ(string login)
         {
@@ -48,10 +49,11 @@ namespace road_road.View
             return true;
         }
 
-        public static bool Edit_Profile(Users users, string login)
+        public static bool Edit_Profile(Users user, string login)
         {
-            var log = context.Users.Where(x => x.Login == login).SingleOrDefault();
-            context.Users.Update(users);
+            context.Users.Where(x => x.Login == login).SingleOrDefault();
+            context.UpdateRange(user);
+            context.SaveChanges();
             return true;
         }
     }
