@@ -19,6 +19,7 @@
                 <DataGridTextColumn Binding="{Binding Title}" Header="Фамилия"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Отчество"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Пол"/>
+                    
                 <DataGridTextColumn Binding="{Binding Title}" Header="Должность"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Роль"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Логин"/>
