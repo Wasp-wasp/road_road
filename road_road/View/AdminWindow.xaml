@@ -15,8 +15,8 @@
         <Grid Margin="185,66,105,0" Visibility="Visible">
             <DataGrid x:Name="DataGrid">
                 <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Имя"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Фамилия"/>
+                <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
+                <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Отчество"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Пол"/>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Должность"/>
