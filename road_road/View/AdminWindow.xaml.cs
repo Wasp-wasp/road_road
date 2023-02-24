@@ -23,5 +23,29 @@ namespace road_road.View
         {
             InitializeComponent();
         }
+
+        private void BT_people_Click(object sender, RoutedEventArgs e)
+        {
+            DG_report.Visibility = Visibility.Hidden;
+            DG_people.Visibility = Visibility.Visible;
+            DG_smena.Visibility = Visibility.Hidden;
+          
+        }
+
+       
+     
+        private void BT_smena_Click(object sender, RoutedEventArgs e)
+        {
+            DG_report.Visibility = Visibility.Hidden;
+            DG_people.Visibility = Visibility.Hidden;
+            DG_smena.Visibility = Visibility.Visible;
+        }
+
+        private void BT_report_Click(object sender, RoutedEventArgs e)
+        {
+            DG_report.Visibility = Visibility.Visible;
+            DG_people.Visibility = Visibility.Hidden;
+            DG_smena.Visibility = Visibility.Hidden;
+        }
     }
 }

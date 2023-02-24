@@ -8,32 +8,50 @@
         Title="Главная" Height="450" Width="1037">
     <Grid>
         <StackPanel Margin="0,0,852,0">
-            <Button Content="Пользователи" Margin="20,20,20,0" />
-            <Button Content="Наряды" Margin="20,10,20,0" />
-            <Button Content="Отчёты" Margin="20,10,20,0" />
+            <Button x:Name="BT_people" Content="Пользователи" Margin="20,20,20,0" Cursor="Hand" Click="BT_people_Click" />
+            <Button x:Name="BT_smena" Content="Наряды" Margin="20,10,20,0" Cursor="Hand" Click="BT_smena_Click" />
+            <Button x:Name="BT_report" Content="Отчёты" Margin="20,10,20,0" Click="BT_report_Click" />
+           
         </StackPanel>
-        <Grid Margin="185,66,105,0" Visibility="Visible">
-            <DataGrid x:Name="DataGrid">
+        
+        <Grid Margin="185,10,57,10" Visibility="Visible" Cursor="Hand">
+            <DataGrid x:Name="DG_people">
                 <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
-                <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Отчество"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Пол"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Должность"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Роль"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Логин"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Пароль"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Телефон"/>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Почта"/>
+                    <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
+                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Отчество"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Пол"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Должность"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Роль"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Логин"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Пароль"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Телефон"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Почта"/>
                 </DataGrid.Columns>
             </DataGrid>
 
         </Grid>
-        <Grid Margin="185,0,0,0" Visibility="Hidden">
-            
+        <Grid Margin="185,0,0,0" Visibility="Visible">
+            <DataGrid x:Name="DG_smena">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
+                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
+                 
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
-        
-        
+
+        <Grid Margin="185,0,0,0" Visibility="Visible">
+            <DataGrid x:Name="DG_report">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
+                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
+                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+
     </Grid>
     
 </Window>

@@ -38,7 +38,7 @@ namespace road_road.View
 
         private void BC_admin(object sender, RoutedEventArgs e)
         {
-            Admin admin = new Admin();
+            AdminWindow admin = new AdminWindow();
             admin.Show();
             this.Close();
         }
