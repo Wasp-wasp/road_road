@@ -1,16 +1,8 @@
-﻿using System;
+﻿using road_road.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace road_road.View
 {
@@ -19,9 +11,12 @@ namespace road_road.View
     /// </summary>
     public partial class AdminWindow : Window
     {
+
+        public List<Users> users { get; set; }
         public AdminWindow()
         {
             InitializeComponent();
+            Date_Users();
         }
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
@@ -46,6 +41,28 @@ namespace road_road.View
             DG_report.Visibility = Visibility.Visible;
             DG_people.Visibility = Visibility.Hidden;
             DG_smena.Visibility = Visibility.Hidden;
+        }
+
+        
+
+        private void Date_Users()
+        {
+            using (var context = new DBContext())
+            {
+                //context.Configuration.ProxyCreationEnabled = false;
+                users = context.Users.ToList();
+            }
+           
+            DG_people.ItemsSource = users;
+           // DG_people.Columns[1].HeaderStringFormat = "SubjectMarks";
+        }
+
+     
+        private void DG_users(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            //DG_people.Columns[0]. = "название столбца";
+           
+           // DG_people.Columns[0].;
         }
     }
 }
