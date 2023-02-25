@@ -1,8 +1,9 @@
 ﻿using road_road.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-
+using System.Windows.Controls;
 
 namespace road_road.View
 {
@@ -49,20 +50,34 @@ namespace road_road.View
         {
             using (var context = new DBContext())
             {
-                //context.Configuration.ProxyCreationEnabled = false;
                 users = context.Users.ToList();
             }
            
             DG_people.ItemsSource = users;
-           // DG_people.Columns[1].HeaderStringFormat = "SubjectMarks";
         }
 
      
         private void DG_users(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            //DG_people.Columns[0]. = "название столбца";
-           
-           // DG_people.Columns[0].;
+            var context = new DBContext();
+
+
+            var us = context.Users.SingleOrDefault(x => x.IdUser == x.IdUser);
+            MessageBox.Show(System.Convert.ToString(us));
+         //   context.Entry(us).State = EntityState.Modified;
+            context.SaveChanges();
+        }
+
+        private void DG_AGCpeople( object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headername = e.Column.Header.ToString();
+
+            if (headername == "IdRole")
+            {
+                e.Column.Header = "Роль";
+            }
+
+         
         }
     }
 }
