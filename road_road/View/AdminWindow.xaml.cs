@@ -48,22 +48,8 @@ namespace road_road.View
         
         private void BrigadeID()
         {
-            //List<string> brigades = new List<string>();
-            var brigades = AuthenticationService.BrigadeID();
-            string[] brigade = new string[brigades.Count()] ;
-
-
-            //foreach (var i in brigade)
-            //    brigades.Add(i.NameOfBrigade);
-
-            //string combinedString = string.Join(",", brigade.ToArray());
-            //MessageBox.Show(combinedString.ToString());
-            for (int i = 1; i < brigade.Count(); i++)
-                for(int j = 2; ;)
-                {
-                    //brigade[i] = brigades[i, j];
-                }
-
+          
+          
         }
 
         private void Date_Users()
@@ -150,7 +136,14 @@ namespace road_road.View
             SeriesCollection[1].Values.Add(48d);
 
 
-            //Labels =  new;
+            var brigades = AuthenticationService.BrigadeID();
+            string[] brigade = new string[brigades.Count()];
+
+            for (int i = 0; i < brigade.Count(); i++)
+            {
+                brigade[i] = brigades.ElementAt(i);
+            }
+            Labels = brigade;
             Formatter = value => value.ToString("N");
 
             DataContext = this;

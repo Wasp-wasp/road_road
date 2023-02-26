@@ -41,9 +41,9 @@ namespace road_road.View
             var gender = context.Genders.ToList();
             return gender;
         }
-        public static IEnumerable<Brigades> BrigadeID()
+        public static IEnumerable<string> BrigadeID()
         {
-            var brigade = context.Brigades.ToList();
+            var brigade = context.Brigades.Select(x => x.NameOfBrigade).ToList();
             return brigade;
         }
 
