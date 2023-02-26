@@ -12,11 +12,11 @@
             <Button x:Name="BT_smena" Content="Наряды" Margin="20,10,20,0" Cursor="Hand" Click="BT_smena_Click" />
             <Button x:Name="BT_report" Content="Отчёты" Margin="20,10,20,0" Click="BT_report_Click" />
         </StackPanel>
-        
-        <Grid Margin="185,10,57,10" Visibility="Visible" Cursor="Hand">
-            <DataGrid x:Name="DG_people" IsReadOnly="False"  AutoGenerateColumns="True"  AutoGeneratingColumn="DG_AGCpeople" SelectionChanged="DG_users" Margin="-10,0,10,0">
+
+        <Grid Margin="185,10,57,10" Visibility="Hidden" Cursor="Hand">
+            <DataGrid x:Name="DG_people" IsReadOnly="False"  AutoGenerateColumns="True"  AutoGeneratingColumn="DG_AGCpeople" SelectionChanged="DG_users" CanUserDeleteRows="True">
                 <DataGrid.Columns>
-                 
+
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -30,17 +30,35 @@
             </DataGrid>
         </Grid>
 
-        <Grid Margin="185,0,0,0" Visibility="Hidden">
-            <DataGrid x:Name="DG_report">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
-                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
-                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
-                </DataGrid.Columns>
-            </DataGrid>
+        <Grid Margin="185,0,0,0" Visibility="Visible" x:Name="DG_report">
+            <Grid Margin="0,0,623,0">
+                 <StackPanel Margin="0,0,0,194">
+                    <Label Content="Выберите задачу" Width="139" FontSize="16"/>
+                    <ComboBox Name="CB_task"/>
+                    <TextBlock Text="Выборите периода времени" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+                    <DatePicker x:Name="StartDate" Width="198" Height="40" SelectedDateChanged="StartDate_SelectedDateChanged" Margin="00, 10, 0, 0"/>
+                    <DatePicker x:Name="EndDate" Width="201" Height="40" SelectedDateChanged="EndDate_SelectedDateChanged" Margin="00, 10, 0, 0"/>
+                </StackPanel>
+                
+                
+                
+            </Grid>
+
+           
+            
+            
+            <StackPanel Margin="229,0,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <TextBlock Text="Тип диаграммы" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center" Margin="10 0"/>
+                    <ComboBox Name="ComboChart" SelectedIndex="0" Width="250" Height="40" SelectionChanged="ComboChart_SelectionChanged"/>
+                </StackPanel>
+
+              
+            </StackPanel>
+
         </Grid>
 
 
     </Grid>
-    
+
 </Window>

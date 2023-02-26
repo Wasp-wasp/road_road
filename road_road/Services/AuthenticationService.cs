@@ -42,6 +42,12 @@ namespace road_road.View
             return gender;
         }
 
+        public static IEnumerable<TypeTask> TaskID()
+        {
+            var task = context.TypeTask.ToList();
+            return task;
+        }
+
         public static bool Registration(Users users)
         {
             context.Users.Add(users);
@@ -56,6 +62,13 @@ namespace road_road.View
             context.SaveChanges();
             return true;
         }
+
+
+        //public static bool IEnumerable<Users> Users
+        //{
+        //    var users = context.Users.ToList();
+        //    return users;
+        //}
       
     }
 }

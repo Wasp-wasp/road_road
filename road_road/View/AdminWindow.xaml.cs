@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
+
+
 namespace road_road.View
 {
     /// <summary>
@@ -18,6 +20,8 @@ namespace road_road.View
         {
             InitializeComponent();
             Date_Users();
+            Task_ID();
+
         }
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
@@ -59,13 +63,25 @@ namespace road_road.View
      
         private void DG_users(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            var context = new DBContext();
+            //   var context = new DBContext();
+            //using (var context = new DBContext())
+            //{
+            //    users = context.Users.ToList();
+            //}
+            DG_people.ItemsSource = users;
+            using (var context = new DBContext())
+            {
+                users = context.Users.ToList();
+                //context.SaveChanges();
+            }
 
+            MessageBox.Show(System.Convert.ToString(users));
+            // users = context.Users.ToList();
 
-            var us = context.Users.SingleOrDefault(x => x.IdUser == x.IdUser);
-            MessageBox.Show(System.Convert.ToString(us));
-         //   context.Entry(us).State = EntityState.Modified;
-            context.SaveChanges();
+            //   var us = context.Users.SingleOrDefault(x => x.IdUser == x.IdUser);
+            //   MessageBox.Show(System.Convert.ToString(us));
+            ////   context.Entry(us).State = EntityState.Modified;
+            //   context.SaveChanges();
         }
 
         private void DG_AGCpeople( object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -76,8 +92,42 @@ namespace road_road.View
             {
                 e.Column.Header = "Роль";
             }
+            if (headername == "IdUser")
+            {
+                e.Column.Width=0;
+            }
 
-         
+            if (headername == "IdGender")
+            {
+                e.Column.Header = "Гендер";
+                e.Column.IsReadOnly = true;
+            }
+
+            if (headername == "Photo")
+            {
+                e.Column.Width = 0;
+            }
+
+
         }
+        private void Task_ID()
+        {
+            var task = AuthenticationService.TaskID();
+
+            foreach (var i in task)
+                CB_task.Items.Add(i.NameTypeTask);
+        }
+
+        private void StartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+          //  UpdateChart();
+        }
+
+        private void EndDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+          //  UpdateChart();
+        }
+
+
     }
 }
