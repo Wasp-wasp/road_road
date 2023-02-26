@@ -41,6 +41,11 @@ namespace road_road.View
             var gender = context.Genders.ToList();
             return gender;
         }
+        public static IEnumerable<Brigades> BrigadeID()
+        {
+            var brigade = context.Brigades.ToList();
+            return brigade;
+        }
 
         public static IEnumerable<TypeTask> TaskID()
         {
