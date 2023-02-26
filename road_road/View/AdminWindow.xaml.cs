@@ -20,8 +20,7 @@ namespace road_road.View
         {
             InitializeComponent();
             Date_Users();
-            Task_ID();
-
+          
         }
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
@@ -110,24 +109,7 @@ namespace road_road.View
 
 
         }
-        private void Task_ID()
-        {
-            var task = AuthenticationService.TaskID();
-
-            foreach (var i in task)
-                CB_task.Items.Add(i.NameTypeTask);
-        }
-
-        private void StartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-          //  UpdateChart();
-        }
-
-        private void EndDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-          //  UpdateChart();
-        }
-
+        
 
     }
 }

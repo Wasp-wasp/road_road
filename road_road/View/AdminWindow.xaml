@@ -31,31 +31,7 @@
         </Grid>
 
         <Grid Margin="185,0,0,0" Visibility="Visible" x:Name="DG_report">
-            <Grid Margin="0,0,623,0">
-                 <StackPanel Margin="0,0,0,194">
-                    <Label Content="Выберите задачу" Width="139" FontSize="16"/>
-                    <ComboBox Name="CB_task"/>
-                    <TextBlock Text="Выборите периода времени" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
-                    <DatePicker x:Name="StartDate" Width="198" Height="40" SelectedDateChanged="StartDate_SelectedDateChanged" Margin="00, 10, 0, 0"/>
-                    <DatePicker x:Name="EndDate" Width="201" Height="40" SelectedDateChanged="EndDate_SelectedDateChanged" Margin="00, 10, 0, 0"/>
-                </StackPanel>
-                
-                
-                
-            </Grid>
-
-           
             
-            
-            <StackPanel Margin="229,0,0,0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <TextBlock Text="Тип диаграммы" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center" Margin="10 0"/>
-                    <ComboBox Name="ComboChart" SelectedIndex="0" Width="250" Height="40" SelectionChanged="ComboChart_SelectionChanged"/>
-                </StackPanel>
-
-              
-            </StackPanel>
-
         </Grid>
 
 
