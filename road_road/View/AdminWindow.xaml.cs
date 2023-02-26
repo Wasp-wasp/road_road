@@ -18,10 +18,13 @@ namespace road_road.View
     {
 
         public List<Users> users { get; set; }
+        
+        
         public AdminWindow()
         {
             InitializeComponent();
             Date_Users();
+            BrigadeID();
             DG_smena.Visibility = Visibility.Hidden;
             DG_chart.Visibility = Visibility.Hidden;
         }
@@ -34,8 +37,6 @@ namespace road_road.View
           
         }
 
-       
-     
         private void BT_smena_Click(object sender, RoutedEventArgs e)
         {
             DG_chart.Visibility = Visibility.Hidden;
@@ -43,9 +44,27 @@ namespace road_road.View
             DG_smena.Visibility = Visibility.Visible;
         }
 
-        
 
         
+        private void BrigadeID()
+        {
+            //List<string> brigades = new List<string>();
+            var brigades = AuthenticationService.BrigadeID();
+            string[] brigade = new string[brigades.Count()] ;
+
+
+            //foreach (var i in brigade)
+            //    brigades.Add(i.NameOfBrigade);
+
+            //string combinedString = string.Join(",", brigade.ToArray());
+            //MessageBox.Show(combinedString.ToString());
+            for (int i = 1; i < brigade.Count(); i++)
+                for(int j = 2; ;)
+                {
+                    //brigade[i] = brigades[i, j];
+                }
+
+        }
 
         private void Date_Users()
         {
@@ -130,7 +149,8 @@ namespace road_road.View
             //also adding values updates and animates the chart automatically
             SeriesCollection[1].Values.Add(48d);
 
-            Labels = new[] { "Maria", "Susan", "Charles", "Frida" };
+
+            //Labels =  new;
             Formatter = value => value.ToString("N");
 
             DataContext = this;
