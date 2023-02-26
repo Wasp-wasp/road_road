@@ -110,6 +110,10 @@ namespace road_road.View
                 e.Column.Width = 0;
             }
         }
+
+
+
+
         private void BT_chart_Click(object sender, EventArgs e)
         {
             DG_chart.Visibility = Visibility.Visible;
@@ -120,16 +124,16 @@ namespace road_road.View
             {
                 new ColumnSeries
                 {
-                    Title = "2015",
-                    Values = new ChartValues<double> { 10, 50, 39, 50 }
+                    Title = "2022",
+                    Values = new ChartValues<double>(AuthenticationService.WT())
                 }
             };
 
             //adding series will update and animate the chart automatically
             SeriesCollection.Add(new ColumnSeries
             {
-                Title = "2016",
-                Values = new ChartValues<double> { 11, 56, 42 }
+                Title = "2023",
+                Values = new ChartValues<double> { 11, 56, 42, 0, 20 }
             });
 
             //also adding values updates and animates the chart automatically
@@ -144,6 +148,7 @@ namespace road_road.View
                 brigade[i] = brigades.ElementAt(i);
             }
             Labels = brigade;
+           // int s = AuthenticationService.count();
             Formatter = value => value.ToString("N");
 
             DataContext = this;
