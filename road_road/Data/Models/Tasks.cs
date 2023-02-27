@@ -11,13 +11,13 @@ namespace road_road.Data.Models
     {
         public int IdTask { get; set; }
         public int? IdTypeTask { get; set; }
-        public int? IdObject { get; set; }
+        public int IdObject { get; set; }
         public int? IdPlace { get; set; }
         public int? IdMaterial { get; set; }
         public int? IdTechnic { get; set; }
-        public int? IdBriade { get; set; }
-        public DateTime? DateTimeBegin { get; set; }
-        public DateTime? DateTimeEnd { get; set; }
+        public int IdBriade { get; set; }
+        public DateTime DateTimeBegin { get; set; }
+        public DateTime DateTimeEnd { get; set; }
 
         public virtual Brigades IdBriadeNavigation { get; set; }
         public virtual Materials IdMaterialNavigation { get; set; }

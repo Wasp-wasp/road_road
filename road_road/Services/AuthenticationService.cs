@@ -75,27 +75,27 @@ namespace road_road.View
         //    return users;
         //}
 
-        public static IEnumerable<double> WT()
+        public static IEnumerable<int> WT()
         {
-            var brigade = context.Brigades.Select(x => x.IdBrigade);
+            //var brigade = context.Brigades.Select(x => x.IdBrigade);
             //var id_brigades = context.Brigades.Select(x => x.IdBrigade == BrigadeID).;
             var wt = context.Tasks
-              
+
                 .Select(x => new
                 {
                     BrigadeID = x.IdBriade,
-                    Time = x.DateTimeEnd - x.DateTimeBegin
-
+                    Task = x.IdTask
+                    //Task = Convert.ToBoolean(x.IdTask)
+                    //Time = x.IdObject
                 }
-                
                 )
                 .GroupBy(b => b.BrigadeID)
                 .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
-                .Select( j =>  j.Sum(t => t.Time.Value.TotalDays)
-                );
-            
-             
-            return wt;
+                //.Count()
+                .Select(j => j.Count())
+                ;
+
+             return wt;
         }
 
     }
