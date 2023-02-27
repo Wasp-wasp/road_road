@@ -41,10 +41,41 @@ namespace road_road.View
             var gender = context.Genders.ToList();
             return gender;
         }
-        public static IEnumerable<string> BrigadeID()
+        public static IEnumerable<string> BrigadeID(string title)
         {
-            var brigade = context.Brigades.Select(x => x.NameOfBrigade).ToList();
-            return brigade;
+            
+            ////var brigade = context.Brigades.Select(x => x.NameOfBrigade).ToList();
+            ////return brigade;
+            //string titleBegin = title + "-01-01";
+            //string titleEnd = title + "-12-31";
+            //var wt = context.Tasks
+
+            //    /*.Select(x => new
+            //    {
+            //        BrigadeID = x.IdBriade,
+            //        Task = x.IdTask
+            //    }
+            //    )
+            //    .GroupBy(b => b.BrigadeID)
+            //    .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
+            //    .Select(j => j.Count())
+            //    ;*/
+
+            //    .Select(x => new
+            //    {
+            //        dateTimeBegin = x.DateTimeBegin,
+            //        dateTimeEnd = x.DateTimeEnd,
+            //        BrigadeID = x.IdBriade,
+            //        //Days = x.DateTimeEnd.DayOfYear - x.DateTimeBegin.DayOfYear + 1
+            //    }
+            //    )
+            //    .Where(c => c.dateTimeBegin >= DateTime.Parse(titleBegin) && c.dateTimeEnd <= DateTime.Parse(titleEnd))
+            //    .GroupBy(b => b.BrigadeID)
+            //    .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
+            //    .Select(j => j.Select(t => t.BrigadeID))
+            //    ;
+            //return wt;
+
         }
 
         public static IEnumerable<TypeTask> TaskID()
@@ -75,10 +106,12 @@ namespace road_road.View
         //    return users;
         //}
 
-        public static IEnumerable<int> WT(int title)
+        public static IEnumerable<int> WT(string title)
         {
             //var brigade = context.Brigades.Select(x => x.IdBrigade);
             //var id_brigades = context.Brigades.Select(x => x.IdBrigade == BrigadeID).;
+            string titleBegin = title + "-01-01";
+            string titleEnd = title + "-12-31";
             var wt = context.Tasks
 
                 /*.Select(x => new
@@ -91,13 +124,16 @@ namespace road_road.View
                 .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
                 .Select(j => j.Count())
                 ;*/
-                .Where(c => c.DateTimeBegin >= new DateTime(title / 01 / 01) && c.DateTimeEnd >= new DateTime(title / 31 / 01))
+                
                 .Select(x => new
                 {
+                    dateTimeBegin = x.DateTimeBegin,
+                    dateTimeEnd  = x.DateTimeEnd,
                     BrigadeID = x.IdBriade,
                     Days = x.DateTimeEnd.DayOfYear - x.DateTimeBegin.DayOfYear + 1
                 }
                 )
+                .Where(c => c.dateTimeBegin >= DateTime.Parse(titleBegin) && c.dateTimeEnd <= DateTime.Parse(titleEnd))
                 .GroupBy(b => b.BrigadeID)
                 .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
                 .Select(j => j.Sum(t => t.Days))

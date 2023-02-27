@@ -113,7 +113,6 @@ namespace road_road.View
         public void CB_yearsChange(object sender, EventArgs e)
         {
             Chart();
-
         }
         private void BT_chart_Click(object sender, EventArgs e)
         {
@@ -124,7 +123,8 @@ namespace road_road.View
         }
         public void Chart()
         {
-            int title = Convert.ToInt32(CB_years.SelectedItem.ToString());
+            string title = CB_years.SelectedItem.ToString();
+            
             MessageBox.Show(title.ToString());
             SeriesCollection = new SeriesCollection
             {
@@ -149,7 +149,7 @@ namespace road_road.View
             //SeriesCollection[1].Values.Add(48d);
 
 
-            var brigades = AuthenticationService.BrigadeID();
+            var brigades = AuthenticationService.BrigadeID(title);
             string[] brigade = new string[brigades.Count()];
 
             for (int i = 0; i < brigade.Count(); i++)
