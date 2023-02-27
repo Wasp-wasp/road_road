@@ -113,6 +113,7 @@ namespace road_road.View
         public void CB_yearsChange(object sender, EventArgs e)
         {
             Chart();
+
         }
         private void BT_chart_Click(object sender, EventArgs e)
         {
