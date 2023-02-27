@@ -130,7 +130,6 @@ namespace road_road.View
                     //Values = new ChartValues<int>{ 2, 3, 4, 9}
                 }
             };
-            MessageBox.Show(AuthenticationService.WT().ToString());
             //adding series will update and animate the chart automatically
             SeriesCollection.Add(new ColumnSeries
             {

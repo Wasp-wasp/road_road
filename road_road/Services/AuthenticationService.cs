@@ -81,18 +81,26 @@ namespace road_road.View
             //var id_brigades = context.Brigades.Select(x => x.IdBrigade == BrigadeID).;
             var wt = context.Tasks
 
-                .Select(x => new
+                /*.Select(x => new
                 {
                     BrigadeID = x.IdBriade,
                     Task = x.IdTask
-                    //Task = Convert.ToBoolean(x.IdTask)
-                    //Time = x.IdObject
                 }
                 )
                 .GroupBy(b => b.BrigadeID)
                 .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
-                //.Count()
                 .Select(j => j.Count())
+                ;*/
+
+                .Select(x => new
+                {
+                    BrigadeID = x.IdBriade,
+                    Days = x.DateTimeEnd.DayOfYear - x.DateTimeBegin.DayOfYear + 1
+                }
+                )
+                .GroupBy(b => b.BrigadeID)
+                .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
+                .Select(j => j.Sum(t => t.Days))
                 ;
 
              return wt;
