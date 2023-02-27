@@ -34,12 +34,8 @@
         </Grid>
 
         <Grid Margin="185,0,0,0" Visibility="Visible" x:Name="DG_chart">
-            <ComboBox x:Name="CB_years" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" SelectedItem="2022" SelectionChanged="CB_yearsChange" Width="120">
-                <ComboBoxItem Content="2019"/>
-                <ComboBoxItem Content="2020"/>
-                <ComboBoxItem Content="2021"/>
-                <ComboBoxItem Content="2022"/>
-            </ComboBox>
+            <ComboBox x:Name="CB_years" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" SelectedItem="2022" SelectionChanged="CB_yearsChange" Width="120"/>
+
             <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="10,40,0,0">
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Названия бригад" Labels="{Binding Labels}"></lvc:Axis>

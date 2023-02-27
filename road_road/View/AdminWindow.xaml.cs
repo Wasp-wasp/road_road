@@ -24,6 +24,7 @@ namespace road_road.View
         {
             InitializeComponent();
             Date_Users();
+            CB_yearItem();
             DG_smena.Visibility = Visibility.Hidden;
             DG_chart.Visibility = Visibility.Hidden;
         }
@@ -101,11 +102,17 @@ namespace road_road.View
                 e.Column.Width = 0;
             }
         }
+        public void CB_yearItem()
+        {
+            CB_years.Items.Add("2019");
+            CB_years.Items.Add("2020");
+            CB_years.Items.Add("2021");
+            CB_years.Items.Add("2022");
+        }
         
         public void CB_yearsChange(object sender, EventArgs e)
         {
             Chart();
-            MessageBox.Show(CB_years.SelectedItem.ToString());
         }
         private void BT_chart_Click(object sender, EventArgs e)
         {
@@ -116,12 +123,14 @@ namespace road_road.View
         }
         public void Chart()
         {
+            int title = Convert.ToInt32(CB_years.SelectedItem.ToString());
+            MessageBox.Show(title.ToString());
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
                     Title = CB_years.SelectedItem.ToString(),
-                    Values = new ChartValues<int>(AuthenticationService.WT(Title))
+                    Values = new ChartValues<int>(AuthenticationService.WT(title))
                     //Values = new ChartValues<int?>(AuthenticationService.WT())
                     //Values = new ChartValues<int>{ 2, 3, 4, 9}
                 }
