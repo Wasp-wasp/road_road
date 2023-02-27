@@ -24,7 +24,6 @@ namespace road_road.View
         {
             InitializeComponent();
             Date_Users();
-            BrigadeID();
             DG_smena.Visibility = Visibility.Hidden;
             DG_chart.Visibility = Visibility.Hidden;
         }
@@ -42,14 +41,6 @@ namespace road_road.View
             DG_chart.Visibility = Visibility.Hidden;
             DG_people.Visibility = Visibility.Hidden;
             DG_smena.Visibility = Visibility.Visible;
-        }
-
-
-        
-        private void BrigadeID()
-        {
-          
-          
         }
 
         private void Date_Users()
@@ -110,35 +101,42 @@ namespace road_road.View
                 e.Column.Width = 0;
             }
         }
-
-
-
-
+        
+        public void CB_yearsChange(object sender, EventArgs e)
+        {
+            Chart();
+            MessageBox.Show(CB_years.SelectedItem.ToString());
+        }
         private void BT_chart_Click(object sender, EventArgs e)
         {
             DG_chart.Visibility = Visibility.Visible;
             DG_people.Visibility = Visibility.Hidden;
             DG_smena.Visibility = Visibility.Hidden;
-
+            Chart();
+        }
+        public void Chart()
+        {
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
-                    Title = "2022",
-                    Values = new ChartValues<int>(AuthenticationService.WT())
+                    Title = CB_years.SelectedItem.ToString(),
+                    Values = new ChartValues<int>(AuthenticationService.WT(Title))
                     //Values = new ChartValues<int?>(AuthenticationService.WT())
                     //Values = new ChartValues<int>{ 2, 3, 4, 9}
                 }
             };
+            //MessageBox.Show(CB_years.SelectedItem.ToString());
             //adding series will update and animate the chart automatically
-            SeriesCollection.Add(new ColumnSeries
-            {
-                Title = "2023",
-                Values = new ChartValues<double> { 11, 56, 42, 0, 20 }
-            });
+
+            //SeriesCollection.Add(new ColumnSeries
+            //{
+            //    Title = "2023",
+            //    Values = new ChartValues<double> { 11, 56, 42, 0, 20 }
+            //});
 
             //also adding values updates and animates the chart automatically
-            SeriesCollection[1].Values.Add(48d);
+            //SeriesCollection[1].Values.Add(48d);
 
 
             var brigades = AuthenticationService.BrigadeID();

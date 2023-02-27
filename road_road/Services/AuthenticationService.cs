@@ -75,8 +75,9 @@ namespace road_road.View
         //    return users;
         //}
 
-        public static IEnumerable<int> WT()
+        public static IEnumerable<int> WT(string Title)
         {
+            int title = Convert.ToInt32(Title);
             //var brigade = context.Brigades.Select(x => x.IdBrigade);
             //var id_brigades = context.Brigades.Select(x => x.IdBrigade == BrigadeID).;
             var wt = context.Tasks
@@ -91,7 +92,7 @@ namespace road_road.View
                 .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
                 .Select(j => j.Count())
                 ;*/
-
+                .Where(c => c.DateTimeBegin >= new DateTime(title / 01 / 01) && c.DateTimeEnd >= new DateTime(title / 31 / 01))
                 .Select(x => new
                 {
                     BrigadeID = x.IdBriade,
