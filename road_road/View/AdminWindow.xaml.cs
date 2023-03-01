@@ -125,17 +125,17 @@ namespace road_road.View
         {
             string title = CB_years.SelectedItem.ToString();
             
-            MessageBox.Show(title.ToString());
-            SeriesCollection = new SeriesCollection
+            //MessageBox.Show(title.ToString());
+            SeriesCollection seriesCollection = new SeriesCollection();
+
+            ColumnSeries columnSeries = new ColumnSeries
             {
-                new ColumnSeries
-                {
-                    Title = CB_years.SelectedItem.ToString(),
-                    Values = new ChartValues<int>(AuthenticationService.WT(title))
-                    //Values = new ChartValues<int?>(AuthenticationService.WT())
-                    //Values = new ChartValues<int>{ 2, 3, 4, 9}
-                }
+                Title = CB_years.SelectedItem.ToString(),
+                Values = new ChartValues<int>(AuthenticationService.WT(title))
+                //Values = new ChartValues<int?>(AuthenticationService.WT())
+                //Values = new ChartValues<int>{ 2, 3, 4, 9}
             };
+
             //MessageBox.Show(CB_years.SelectedItem.ToString());
             //adding series will update and animate the chart automatically
 
@@ -145,11 +145,15 @@ namespace road_road.View
             //    Values = new ChartValues<double> { 11, 56, 42, 0, 20 }
             //});
 
+            seriesCollection.Add(columnSeries);
+            ChartGrid.Series = seriesCollection;
+
+
             //also adding values updates and animates the chart automatically
             //SeriesCollection[1].Values.Add(48d);
 
 
-            var brigades = AuthenticationService.BrigadeID();
+            var brigades = AuthenticationService.BrigadeID(title);
             string[] brigade = new string[brigades.Count()];
 
             for (int i = 0; i < brigade.Count(); i++)
@@ -165,6 +169,11 @@ namespace road_road.View
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
+
+        public void NameForChart()
+        {
+
+        }
 
     }
 }
