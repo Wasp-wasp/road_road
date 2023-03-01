@@ -8,7 +8,6 @@ using LiveCharts;
 using LiveCharts.Wpf;
 
 
-
 namespace road_road.View
 {
     /// <summary>
@@ -57,38 +56,38 @@ namespace road_road.View
      
         private void DG_users(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            //MyDataRow row = ()DG_people.SelectedItem;
             //   var context = new DBContext();
             //using (var context = new DBContext())
             //{
             //    users = context.Users.ToList();
             //}
-            DG_people.ItemsSource = users;
-            using (var context = new DBContext())
-            {
-                users = context.Users.ToList();
-                //context.SaveChanges();
-            }
+            //DG_people.ItemsSource = users;
+            //using (var context = new DBContext())
+            //{
+            //    users = context.Users.ToList();
+            //    context.SaveChanges();
+            //}
 
-            MessageBox.Show(System.Convert.ToString(users));
-            // users = context.Users.ToList();
+            //MessageBox.Show(System.Convert.ToString(users));
+            //users = context.Users.ToList();
 
-            //   var us = context.Users.SingleOrDefault(x => x.IdUser == x.IdUser);
-            //   MessageBox.Show(System.Convert.ToString(us));
+            //var us = context.Users.SingleOrDefault(x => x.IdUser == x.IdUser);
+            //MessageBox.Show(System.Convert.ToString(us));
             ////   context.Entry(us).State = EntityState.Modified;
-            //   context.SaveChanges();
+            //context.SaveChanges();
         }
 
         private void DG_AGCpeople( object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string headername = e.Column.Header.ToString();
-
             if (headername == "IdRole")
             {
                 e.Column.Header = "Роль";
             }
-            if (headername == "IdUser")
+            if (headername == "IdUser" || headername == "Photo" || headername  == "IdGenderNavigation"|| headername == "IdRoleNavigation")
             {
-                e.Column.Width=0;
+                e.Column.Width = 0;
             }
 
             if (headername == "IdGender")
@@ -96,11 +95,12 @@ namespace road_road.View
                 e.Column.Header = "Гендер";
                 e.Column.IsReadOnly = true;
             }
-
-            if (headername == "Photo")
+            if (headername == "DateOfBers")
             {
-                e.Column.Width = 0;
+                e.Column.Header = "Дата рождения";
+            
             }
+           
         }
         public void CB_yearItem()
         {

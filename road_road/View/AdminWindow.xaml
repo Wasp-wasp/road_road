@@ -17,7 +17,7 @@
         </StackPanel>
 
         <Grid Margin="185,10,57,10" Visibility="Visible" Cursor="Hand">
-            <DataGrid x:Name="DG_people" IsReadOnly="False"  AutoGenerateColumns="True"  AutoGeneratingColumn="DG_AGCpeople" SelectionChanged="DG_users" CanUserDeleteRows="True">
+            <DataGrid x:Name="DG_people" IsReadOnly="False"  AutoGenerateColumns="True"  AutoGeneratingColumn="DG_AGCpeople" SelectionChanged="DG_users" CanUserAddRows="True" CanUserDeleteRows="True">
                 <DataGrid.Columns>
 
                 </DataGrid.Columns>
