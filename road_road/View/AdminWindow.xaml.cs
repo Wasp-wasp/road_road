@@ -149,7 +149,7 @@ namespace road_road.View
             //SeriesCollection[1].Values.Add(48d);
 
 
-            var brigades = AuthenticationService.BrigadeID(title);
+            var brigades = AuthenticationService.BrigadeID();
             string[] brigade = new string[brigades.Count()];
 
             for (int i = 0; i < brigade.Count(); i++)

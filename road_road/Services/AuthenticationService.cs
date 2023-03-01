@@ -41,11 +41,11 @@ namespace road_road.View
             var gender = context.Genders.ToList();
             return gender;
         }
-        public static IEnumerable<string> BrigadeID(string title)
+        public static IEnumerable<string> BrigadeID()
         {
-            
-            ////var brigade = context.Brigades.Select(x => x.NameOfBrigade).ToList();
-            ////return brigade;
+
+            //var brigade = context.Brigades.Select(x => x.NameOfBrigade).ToList();
+            //return brigade;
             //string titleBegin = title + "-01-01";
             //string titleEnd = title + "-12-31";
             //var wt = context.Tasks
@@ -72,9 +72,24 @@ namespace road_road.View
             //    .Where(c => c.dateTimeBegin >= DateTime.Parse(titleBegin) && c.dateTimeEnd <= DateTime.Parse(titleEnd))
             //    .GroupBy(b => b.BrigadeID)
             //    .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
-            //    .Select(j => j.Select(t => t.BrigadeID))
+            //    .Select(j => j.Select(t => t.))
             //    ;
             //return wt;
+            string titleBegin = title + "-01-01";
+            string titleEnd = title + "-12-31";
+
+            var SortBrigName = context.Tasks.Join(context.Brigades,
+                t => t.IdBrigade,
+                b => b.IdBrigade,
+
+                (t, b) => new
+                {
+                    Name = b.NameOfBrigade
+                }
+                )
+                .Where(x => x.dateTimeBegin >= DateTime.Parse(titleBegin) && x.dateTimeEnd <= DateTime.Parse(titleEnd))
+                ;
+            return SortBrigName;
 
         }
 
@@ -129,7 +144,7 @@ namespace road_road.View
                 {
                     dateTimeBegin = x.DateTimeBegin,
                     dateTimeEnd  = x.DateTimeEnd,
-                    BrigadeID = x.IdBriade,
+                    BrigadeID = x.IdBrigade,
                     Days = x.DateTimeEnd.DayOfYear - x.DateTimeBegin.DayOfYear + 1
                 }
                 )

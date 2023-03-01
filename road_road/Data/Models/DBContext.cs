@@ -249,7 +249,7 @@ namespace road_road.Data.Models
 
                 entity.ToTable("tasks");
 
-                entity.HasIndex(e => e.IdBriade)
+                entity.HasIndex(e => e.IdBrigade)
                     .HasName("id_brigade_task_idx");
 
                 entity.HasIndex(e => e.IdMaterial)
@@ -279,7 +279,7 @@ namespace road_road.Data.Models
                     .HasColumnName("date_time_end")
                     .HasColumnType("datetime");
 
-                entity.Property(e => e.IdBriade).HasColumnName("id_briade");
+                entity.Property(e => e.IdBrigade).HasColumnName("id_brigade");
 
                 entity.Property(e => e.IdMaterial).HasColumnName("id_material");
 
@@ -291,9 +291,9 @@ namespace road_road.Data.Models
 
                 entity.Property(e => e.IdTypeTask).HasColumnName("id_type_task");
 
-                entity.HasOne(d => d.IdBriadeNavigation)
+                entity.HasOne(d => d.IdBrigadeNavigation)
                     .WithMany(p => p.Tasks)
-                    .HasForeignKey(d => d.IdBriade)
+                    .HasForeignKey(d => d.IdBrigade)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("id_brigade_task");
 
