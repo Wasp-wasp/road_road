@@ -34,7 +34,7 @@
         </Grid>
 
         <Grid Margin="185,0,0,0" Visibility="Visible" x:Name="DG_chart">
-            <ComboBox x:Name="CB_years" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  SelectionChanged="CB_yearsChange" Width="120"/>
+            <ComboBox x:Name="CB_years" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" SelectedItem="2022" SelectionChanged="CB_yearsChange" Width="120"/>
 
             <lvc:CartesianChart x:Name="ChartGrid" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="10,40,0,0">
                 <lvc:CartesianChart.AxisX>
