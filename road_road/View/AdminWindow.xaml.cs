@@ -17,8 +17,8 @@ namespace road_road.View
     {
 
         public List<Users> users { get; set; }
-        
-        
+        private Users HandlerUser { get; set; }
+
         public AdminWindow()
         {
             InitializeComponent();
@@ -56,6 +56,20 @@ namespace road_road.View
      
         private void DG_users(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            int selectedIndex = DG_people.SelectedIndex;
+            Users selectedItem = (Users)DG_people.SelectedItem;
+            HandlerUser = selectedItem;
+            MessageBox.Show(selectedItem.Login+ selectedItem.Password);
+            string login = selectedItem.Login;
+
+            
+           // AuthenticationService.Edit_Profile( login);
+
+            //var us = context.Users.SingleOrDefault(x => x.IdUser == x.IdUser);
+            //MessageBox.Show(System.Convert.ToString(us));
+            ////   context.Entry(us).State = EntityState.Modified;
+            //context.SaveChanges();
+
             //MyDataRow row = ()DG_people.SelectedItem;
             //   var context = new DBContext();
             //using (var context = new DBContext())

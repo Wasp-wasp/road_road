@@ -6,24 +6,26 @@
         xmlns:local="clr-namespace:road_road.View"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="1037">
+        Title="Главная" Height="531" Width="1224">
     <Grid>
-        <StackPanel Margin="0,0,852,0">
+        <StackPanel Margin="0,0,1039,0">
             <Button x:Name="BT_people" Content="Пользователи" Margin="20,20,20,0" Cursor="Hand" Click="BT_people_Click" />
             <Button x:Name="BT_smena" Content="Наряды" Margin="20,10,20,0" Cursor="Hand" Click="BT_smena_Click" />
             <Button x:Name="BT_report" Content="Отчёты" Margin="20,10,20,0" Cursor="Hand"  />
             <Button x:Name="BT_charts" Content="График" Margin="20,10,20,0" Click="BT_chart_Click" />
-            
+
         </StackPanel>
 
-        <Grid Margin="185,10,57,10" Visibility="Visible" Cursor="Hand">
+        <Grid Margin="185,10,10,10" Visibility="Visible" Cursor="Hand">
             <DataGrid x:Name="DG_people" IsReadOnly="False"  AutoGenerateColumns="False"  AutoGeneratingColumn="DG_AGCpeople" SelectionChanged="DG_users" CanUserAddRows="True" CanUserDeleteRows="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path = SecondName}" Header="Фамилия"/>
+                    <DataGridTextColumn Binding="{Binding Path = SecondName}" Header="Фамилия" />
                     <DataGridTextColumn Binding="{Binding Path = FirstName}" Header="Имя"/>
                     <DataGridTextColumn Binding="{Binding Path = LastName}" Header="Отчество"/>
                     <DataGridTextColumn Binding="{Binding Path = Login}" Header="Логин"/>
                     <DataGridTextColumn Binding="{Binding Path = Password}" Header="Пароль"/>
+                    <DataGridTextColumn Binding="{Binding Path = IdGender}" Header="Гендер"/>
+                    <DataGridTextColumn Binding="{Binding Path = IdRole}" Header="Роль"/>
                     <DataGridTextColumn Binding="{Binding Path = DateOfBers, StringFormat='{}{0:dd/MM/yyyy}' }" Header="Дата рождения"/>
                     <DataGridTextColumn Binding="{Binding Path = Photo}" Header="Фото"/>
                     <DataGridTextColumn Binding="{Binding Path = Telephone}" Header="Телефон"/>
@@ -52,7 +54,7 @@
                     <lvc:Axis Title="Дней в год" LabelFormatter="{Binding Formatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
-            
+
         </Grid>
 
 
