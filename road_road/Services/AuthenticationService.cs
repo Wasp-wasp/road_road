@@ -89,13 +89,6 @@ namespace road_road.View
             return true;
         }
 
-
-        //public static bool IEnumerable<Users> Users
-        //{
-        //    var users = context.Users.ToList();
-        //    return users;
-        //}
-
         public static IEnumerable<int> WT(string title)
         {
             string titleBegin = title + "-01-01";

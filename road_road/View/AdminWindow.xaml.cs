@@ -125,7 +125,6 @@ namespace road_road.View
         {
             string title = CB_years.SelectedItem.ToString();
             
-            //MessageBox.Show(title.ToString());
             SeriesCollection seriesCollection = new SeriesCollection();
 
             ColumnSeries columnSeries = new ColumnSeries
@@ -136,7 +135,6 @@ namespace road_road.View
                 //Values = new ChartValues<int>{ 2, 3, 4, 9}
             };
 
-            //MessageBox.Show(CB_years.SelectedItem.ToString());
             //adding series will update and animate the chart automatically
 
             //SeriesCollection.Add(new ColumnSeries
@@ -170,10 +168,7 @@ namespace road_road.View
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
-        public void NameForChart()
-        {
-
-        }
+        
 
     }
 }
