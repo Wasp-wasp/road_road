@@ -21,21 +21,12 @@ namespace road_road.View
             return false;
         }
 
-        /*public static string Load_data(string login)
-        {
-            var user = context.Users.SingleOrDefault(x => x.Login == login);
-            return user.ToString();
-        }*/
 
         public static bool Login_UQ(string login)
         {
             var log = context.Users.Where(x => x.Login == login).SingleOrDefault();
             if (log == null) return true;
             return false;
-
-            //var log = context.Users.SingleOrDefault(x => x.Login != login);
-            //if (log != null) return true;
-            //return false;
         }
 
         public static IEnumerable<Genders> GenderID()
@@ -43,6 +34,28 @@ namespace road_road.View
             var gender = context.Genders.ToList();
             return gender;
         }
+        //public static IEnumerable<Genders> GenderIdToName()
+        //{
+        //    var gender = context.Genders.ToList();
+        //    return gender;
+        //}
+        public static IEnumerable<Roles> RoleID()
+        {
+            var role = context.Roles.ToList();
+            return role;
+        }
+        //public static IEnumerable<Roles> RoleIdToName()
+        //{
+        //    var IdToName = context.Users.Join(context.Roles,
+        //        u => u.IdRole,
+        //        r => r.IdRole,
+        //        (u, r) => new { User = u, Role = r })
+        //        .Select(ur => ur.Role.NameOfRole);
+        //    IdToName.ToList();
+        //    return IdToName;
+        //}
+
+
         public static IEnumerable<string> BrigadeID(string title)
         {
 

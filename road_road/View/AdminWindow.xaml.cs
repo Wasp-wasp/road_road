@@ -1,4 +1,5 @@
 ﻿using road_road.Data.Models;
+using road_road.Data.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using LiveCharts;
 using LiveCharts.Wpf;
-
+using System.ComponentModel;
 
 namespace road_road.View
 {
@@ -17,7 +18,8 @@ namespace road_road.View
     {
         
         public List<Users> users { get; set; }
-        private Users HandlerUser { get; set; }
+        public List<Genders> genders { get; set; }
+        public List<Roles> roles { get; set; }
 
         public AdminWindow()
         {
@@ -30,6 +32,7 @@ namespace road_road.View
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
         {
+            
             DG_chart.Visibility = Visibility.Hidden;
             DG_people.Visibility = Visibility.Visible;
             DG_smena.Visibility = Visibility.Hidden;
@@ -37,62 +40,51 @@ namespace road_road.View
         }
 
         private void BT_smena_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+            BT_AddUser.Visibility= Visibility.Hidden;
             DG_chart.Visibility = Visibility.Hidden;
             DG_people.Visibility = Visibility.Hidden;
             DG_smena.Visibility = Visibility.Visible;
         }
 
-        private void Date_Users()
+        public void Date_Users()
         {
             using (var context = new DBContext())
             {
-                users = context.Users.ToList();
+               var users = context.Users.Select(x => new UserViewModel
+               {
+                    NameRole = x.IdRoleNavigation.NameOfRole,
+                    NameGender = x.IdGenderNavigation.NameOfGender,
+                    DateOfBers = x.DateOfBers,
+                    SecondName = x.SecondName,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Telephone = x.Telephone,
+                    EMail = x.EMail,
+                    Photo = x.Photo,
+                    Login = x.Login,
+                    Password = x.Password
+               }).ToList();
+                
+                DG_people.ItemsSource = users;
             }
-           
-            DG_people.ItemsSource = users;
         }
 
-     
+
         private void DG_users(object sender, SelectionChangedEventArgs e)
         {
- 
-            Users selectedItem = (Users)DG_people.SelectedItem;
-            HandlerUser = selectedItem;
-            //MessageBox.Show(selectedItem.Login + selectedItem.Password);
-            string login = selectedItem.Login;
-            
-            Admin admin = new Admin(login);
-            admin.Show();
-            
-            Date_Users();
-            //AuthenticationService.Edit_Profile(selectedItem, login);
+            UserViewModel selectedItem = (UserViewModel)DG_people.SelectedItem;
+            if (selectedItem != null)
+            {
+                string login = selectedItem.Login;
+                Admin admin = new Admin(login, this);
+                admin.Show();
+            }
+            //Date_Users();
+                
         }
 
-        private void DG_AGCpeople( object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            string headername = e.Column.Header.ToString();
-            if (headername == "IdRole")
-            {
-                e.Column.Header = "Роль";
-            }
-            if (headername == "IdUser" || headername == "Photo" || headername  == "IdGenderNavigation"|| headername == "IdRoleNavigation")
-            {
-                e.Column.Width = 0;
-            }
-
-            if (headername == "IdGender")
-            {
-                e.Column.Header = "Гендер";
-                e.Column.IsReadOnly = true;
-            }
-            if (headername == "DateOfBers")
-            {
-                e.Column.Header = "Дата рождения";
-            
-            }
-           
-        }
+        
         public void CB_yearItem()
         {
             CB_years.Items.Add("2019");
@@ -122,8 +114,6 @@ namespace road_road.View
             {
                 Title = CB_years.SelectedItem.ToString(),
                 Values = new ChartValues<int>(AuthenticationService.WT(title))
-                //Values = new ChartValues<int?>(AuthenticationService.WT())
-                //Values = new ChartValues<int>{ 2, 3, 4, 9}
             };
 
             //adding series will update and animate the chart automatically
@@ -150,7 +140,6 @@ namespace road_road.View
                 brigade[i] = brigades.ElementAt(i);
             }
             Labels = brigade;
-           // int s = AuthenticationService.count();
             Formatter = value => value.ToString("N");
 
             DataContext = this;
@@ -159,7 +148,11 @@ namespace road_road.View
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
 
-        
-
+        private void BT_add_Click(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration(this);
+            registration.Show();
+            
+        }
     }
 }

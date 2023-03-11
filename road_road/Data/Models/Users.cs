@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -24,5 +24,7 @@ namespace road_road.Data.Models
 
         public virtual Genders IdGenderNavigation { get; set; }
         public virtual Roles IdRoleNavigation { get; set; }
+
+        
     }
 }

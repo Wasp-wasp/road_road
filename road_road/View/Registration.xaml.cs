@@ -12,12 +12,14 @@ namespace road_road.View
     //работа с интерфейсом
     public partial class Registration : Window
     {
-        public Registration()
+        AdminWindow admin;
+        public Registration(AdminWindow admin)
         {
             InitializeComponent();
+            this.admin = admin;
             GenderID();
+            
         }
-
 
         private void GenderID()
         {
@@ -27,12 +29,6 @@ namespace road_road.View
                 CB_gender.Items.Add(i.NameOfGender);
         }
         
-        private void But_enter(object sender, RoutedEventArgs e)
-        {
-            Autorisation autorisation = new Autorisation();
-            autorisation.Show();
-            this.Close();
-        }
 
         private void But_reg(object sender, RoutedEventArgs e)
         {
@@ -47,9 +43,7 @@ namespace road_road.View
 
                 user.IdGender = CB_gender.SelectedIndex + 1;
                 AuthenticationService.Registration(user);
-
-                Account account = new Account(TB_login.Text);
-                account.Show();
+                admin.Date_Users();
                 this.Close();
             }
             else

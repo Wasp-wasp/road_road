@@ -6,17 +6,22 @@
         xmlns:local="clr-namespace:road_road.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Admin" Height="442" Width="217">
+        Title="Admin" Height="536" Width="283">
     <Grid>
-        <TextBox x:Name="TB_firstname" HorizontalAlignment="Center" Margin="0,81,0,0" Text="Имя" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_secondname" HorizontalAlignment="Center" Margin="0,111,0,0" Text="Фамилия" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_lastname" HorizontalAlignment="Center" Margin="0,141,0,0" Text="Отчество" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="CB_gender" HorizontalAlignment="Center" Margin="0,171,0,0" Text="Пол"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_login" HorizontalAlignment="Center" Text="Логин" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TB_date" HorizontalAlignment="Center" Margin="0,231,0,0" Text="Дата рождения" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_telephone" HorizontalAlignment="Center" Margin="0,261,0,0" Text="Телефон" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_password" HorizontalAlignment="Center" Margin="0,291,0,0" Text="Пароль" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Изменить" HorizontalAlignment="Left" Margin="58,370,0,0" VerticalAlignment="Top" Click="Edit_But"/>
+        <TextBox x:Name="TB_firstname" HorizontalAlignment="Center" Margin="0,21,0,0" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_secondname" HorizontalAlignment="Center" Margin="0,63,0,0" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_lastname" HorizontalAlignment="Center" Margin="0,105,0,0" materialDesign:HintAssist.Hint="Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CB_gender" HorizontalAlignment="Center" Margin="0,147,0,0" Text="Пол" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CB_role" HorizontalAlignment="Center" Margin="0,177,0,0" Text="Роль" SelectedItem="администратор" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_login" HorizontalAlignment="Center" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="0,207,0,0"/>
+        <TextBox x:Name="TB_password" HorizontalAlignment="Center" Margin="0,249,0,0" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <!--<TextBox x:Name="TB_date" HorizontalAlignment="Center" Margin="0,291,0,0" materialDesign:HintAssist.Hint="Дата рождения" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>-->
+
+        <TextBox x:Name="TB_telephone" HorizontalAlignment="Center" Margin="0,333,0,0" materialDesign:HintAssist.Hint="Телефон" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_email" HorizontalAlignment="Center" Margin="0,375,0,0" materialDesign:HintAssist.Hint="Электронная почта" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Изменить" HorizontalAlignment="Left" Margin="44,426,0,0" VerticalAlignment="Top" Click="Edit_But"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="146,426,0,0" VerticalAlignment="Top" Click="Delete_But" Width="98"/>
+        <DatePicker x:Name="DP_DateOfBers" Margin="74,291,74,0" VerticalAlignment="Top" Height="37"/>
 
     </Grid>
 </Window>
