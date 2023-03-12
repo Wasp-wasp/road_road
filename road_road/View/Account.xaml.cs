@@ -17,27 +17,14 @@ namespace road_road.View
 
         public Account(string login)
         {
-            
             InitializeComponent();
-            //TB_login.Text = login;
             log = login;
             GenderID();
             Load_data();
         }
 
-
-        private void but_main(object sender, RoutedEventArgs e)
-        {
-            Main main = new Main();
-            main.Show();
-            this.Close();
-
-        }
-
         private void Load_data()
         {
-            //TB_login.Text = AuthenticationService.Load_data(log) + "не робит";
-
             var user = context.Users.SingleOrDefault(x => x.Login == log);
             int? genderInt = user.IdGender;
             var gender = context.Genders.Where(x => x.IdGender == genderInt).SingleOrDefault();
@@ -46,7 +33,8 @@ namespace road_road.View
             TB_secondname.Text = user.SecondName;
             TB_patronomic.Text = user.LastName;
             CB_gender.Text = gender.NameOfGender;
-            TB_role.Text = user.Password;
+            TB_password.Text = user.Password;
+            DP_DateOfBers.SelectedDate = user.DateOfBers;
             TB_mail.Text = user.EMail;
             TB_telephone.Text = user.Telephone;
         }
@@ -59,17 +47,11 @@ namespace road_road.View
                 CB_gender.Items.Add(i.NameOfGender);
         }
 
-        private void But_change_Click(object sender, RoutedEventArgs e)
+        private void But_Edit_Click(object sender, RoutedEventArgs e)
         {
-            var user = context.Users.SingleOrDefault(x => x.Login == log);
-            user.Login = TB_login.Text.Trim();
-            user.FirstName = TB_name.Text.Trim();
-            user.SecondName = TB_secondname.Text.Trim();
-            user.LastName = TB_patronomic.Text.Trim();
-            user.Password = TB_role.Text.Trim();
-            user.IdGender = CB_gender.SelectedIndex + 1;
-            context.SaveChanges();
-
+            AdminWindow admin = new AdminWindow();
+            admin.Show();
+            this.Close();
         }
     }
 }

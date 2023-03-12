@@ -4,22 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-
         xmlns:local="clr-namespace:road_road.View"
         mc:Ignorable="d"
-        Title="Account" Height="384" Width="425">
+        Title="Данные профиля" Height="384" Width="371">
     <Grid>
-        <TextBox x:Name="TB_login" materialDesign:HintAssist.Hint="Логин" HorizontalAlignment="Left" Margin="10,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="TB_role" materialDesign:HintAssist.Hint="Роль" HorizontalAlignment="Left" Margin="10,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_secondname" materialDesign:HintAssist.Hint="Фамилия" HorizontalAlignment="Left" Margin="263,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_name" materialDesign:HintAssist.Hint="Имя" HorizontalAlignment="Left" Margin="263,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-       
-      
-        <TextBox x:Name="TB_patronomic" materialDesign:HintAssist.Hint="Отчество" HorizontalAlignment="Left" Margin="263,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="CB_gender" materialDesign:HintAssist.Hint="Пол" HorizontalAlignment="Left" Margin="263,168,0,0"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_mail" materialDesign:HintAssist.Hint="Электронная почта" HorizontalAlignment="Left" Margin="263,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_telephone" materialDesign:HintAssist.Hint="Телефон" HorizontalAlignment="Left" Margin="263,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="But_change" Content="Изменить" HorizontalAlignment="Center" Margin="0,288,0,0" VerticalAlignment="Top" Cursor="Hand" Click="But_change_Click"/>
+        <TextBox x:Name="TB_login" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="26,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+        <TextBox x:Name="TB_password" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="26,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_secondname" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="26,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_name" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="26,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_patronomic" materialDesign:HintAssist.Hint="Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="26,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <DatePicker x:Name="DP_DateOfBers" Margin="212,55,29,0" VerticalAlignment="Top" Height="37" IsEnabled="False"/>
+        <ComboBox x:Name="CB_gender" materialDesign:HintAssist.Hint="Пол" HorizontalAlignment="Left"  Margin="212,122,0,0"  VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="TB_mail" materialDesign:HintAssist.Hint="Электронная почта" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="212,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_telephone" materialDesign:HintAssist.Hint="Телефон" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="212,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Button x:Name="But_change" Content="Изменение данных"  HorizontalAlignment="Left" Margin="112,288,0,0" VerticalAlignment="Top" Cursor="Hand" Click="But_Edit_Click"/>
 
     </Grid>
 </Window>

@@ -34,34 +34,14 @@ namespace road_road.View
             var gender = context.Genders.ToList();
             return gender;
         }
-        //public static IEnumerable<Genders> GenderIdToName()
-        //{
-        //    var gender = context.Genders.ToList();
-        //    return gender;
-        //}
         public static IEnumerable<Roles> RoleID()
         {
             var role = context.Roles.ToList();
             return role;
         }
-        //public static IEnumerable<Roles> RoleIdToName()
-        //{
-        //    var IdToName = context.Users.Join(context.Roles,
-        //        u => u.IdRole,
-        //        r => r.IdRole,
-        //        (u, r) => new { User = u, Role = r })
-        //        .Select(ur => ur.Role.NameOfRole);
-        //    IdToName.ToList();
-        //    return IdToName;
-        //}
-
 
         public static IEnumerable<string> BrigadeID(string title)
         {
-
-            //var brigade = context.Brigades.Select(x => x.NameOfBrigade).ToList();
-            //return brigade;
-            
             string titleBegin = title + "-01-01";
             string titleEnd = title + "-12-31";
 
@@ -72,10 +52,6 @@ namespace road_road.View
                 .Where(tb => tb.Task.DateTimeBegin >= DateTime.Parse(titleBegin) && tb.Task.DateTimeEnd <= DateTime.Parse(titleEnd))
                 .Select(tb => tb.Brigade.NameOfBrigade)
                 .Distinct();
-            //var result = from t in context.Tasks
-            //             join b in context.Brigades on t.IdBrigade equals b.IdBrigade
-            //             where t.DateTimeBegin >= DateTime.Parse(titleBegin) && t.DateTimeEnd <= DateTime.Parse(titleEnd)
-            //             select b.NameOfBrigade;
             SortBrigName.ToList();
             return SortBrigName;
 
@@ -107,17 +83,6 @@ namespace road_road.View
             string titleBegin = title + "-01-01";
             string titleEnd = title + "-12-31";
             var wt = context.Tasks
-
-                /*.Select(x => new
-                {
-                    BrigadeID = x.IdBriade,
-                    Task = x.IdTask
-                }
-                )
-                .GroupBy(b => b.BrigadeID)
-                .OrderBy(c => c.Key) //key  сортировка по возрастанию ID
-                .Select(j => j.Count())
-                ;*/
                 
                 .Select(x => new
                 {
@@ -135,6 +100,5 @@ namespace road_road.View
 
              return wt;
         }
-
     }
 }

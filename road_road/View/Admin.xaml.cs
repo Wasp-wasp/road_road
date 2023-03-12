@@ -25,9 +25,7 @@ namespace road_road.View
             RoleID();
         }
         private void Load_data()
-        {
-            //TB_login.Text = AuthenticationService.Load_data(log) + "не робит";
-            
+        {            
             var user = context.Users.SingleOrDefault(x => x.Login == log);
             CB_gender.SelectedIndex = Convert.ToInt32(user.IdGender) - 1;
             CB_role.SelectedIndex = Convert.ToInt32(user.IdRole) - 1;
@@ -37,6 +35,8 @@ namespace road_road.View
             TB_lastname.Text = user.LastName;
             TB_password.Text = user.Password;
             DP_DateOfBers.SelectedDate = user.DateOfBers;
+            TB_telephone.Text = user.Telephone;
+            TB_email.Text = user.EMail;
         }
         private void GenderID()
         {
@@ -55,18 +55,40 @@ namespace road_road.View
 
         private void Edit_But(object sender, RoutedEventArgs e)
         {
-            var user = context.Users.SingleOrDefault(x => x.Login == log);
-            user.Login = TB_login.Text.Trim();
-            user.FirstName = TB_firstname.Text.Trim();
-            user.SecondName = TB_secondname.Text.Trim();
-            user.LastName = TB_lastname.Text.Trim();
-            user.Password = TB_password.Text.Trim();
-            user.IdGender = CB_gender.SelectedIndex + 1;
-            user.IdRole = CB_role.SelectedIndex + 1;
-            user.DateOfBers = DP_DateOfBers.SelectedDate;
-            context.SaveChanges();
-            admin.Date_Users();
-            this.Close();
+            if (TB_login.Text == "")
+            {
+                MessageBox.Show("Поле логин не заполненно");
+            }
+            else if (TB_firstname.Text == "")
+            {
+                MessageBox.Show("Поле Имя не заполненно");
+            }
+            else if (TB_secondname.Text == "")
+            {
+                MessageBox.Show("Поле Фамилия не заполненно");
+            }
+            else if (DP_DateOfBers.SelectedDate == null)
+            {
+                MessageBox.Show("Поле Дата рождения не заполненно");
+            }
+
+            else 
+            {
+                var user = context.Users.SingleOrDefault(x => x.Login == log);
+                user.Login = TB_login.Text.Trim();
+                user.FirstName = TB_firstname.Text.Trim();
+                user.SecondName = TB_secondname.Text.Trim();
+                user.LastName = TB_lastname.Text.Trim();
+                user.Password = TB_password.Text.Trim();
+                user.IdGender = CB_gender.SelectedIndex + 1;
+                user.IdRole = CB_role.SelectedIndex + 1;
+                user.DateOfBers = DP_DateOfBers.SelectedDate;
+                user.Telephone = TB_telephone.Text.Trim();
+                user.EMail = TB_email.Text.Trim();
+                context.SaveChanges();
+                admin.Date_Users();
+                this.Close();
+            }
         }
         private void Delete_But(object sender, RoutedEventArgs e)
         {
@@ -76,7 +98,5 @@ namespace road_road.View
             admin.Date_Users();
             this.Close();
         }
-        
-        
     }
 }

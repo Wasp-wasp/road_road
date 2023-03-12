@@ -26,21 +26,5 @@ namespace road_road.View
                 MessageBox.Show("Неправильно введён логин или пароль");
             }
         }
-
-        
-
-        //private void BC_reg(object sender, RoutedEventArgs e)
-        //{
-        //    Registration reg = new Registration();
-        //    reg.Show();
-        //    this.Close();
-        //}
-
-        private void BC_admin(object sender, RoutedEventArgs e)
-        {
-            AdminWindow admin = new AdminWindow();
-            admin.Show();
-            this.Close();
-        }
     }
 }

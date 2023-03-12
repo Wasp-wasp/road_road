@@ -32,7 +32,7 @@ namespace road_road.View
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
         {
-            
+            BT_AddUser.Visibility = Visibility.Visible;
             DG_chart.Visibility = Visibility.Hidden;
             DG_people.Visibility = Visibility.Visible;
             DG_smena.Visibility = Visibility.Hidden;
@@ -79,9 +79,7 @@ namespace road_road.View
                 string login = selectedItem.Login;
                 Admin admin = new Admin(login, this);
                 admin.Show();
-            }
-            //Date_Users();
-                
+            }                
         }
 
         
@@ -102,6 +100,7 @@ namespace road_road.View
             DG_chart.Visibility = Visibility.Visible;
             DG_people.Visibility = Visibility.Hidden;
             DG_smena.Visibility = Visibility.Hidden;
+            BT_AddUser.Visibility = Visibility.Hidden;
             Chart();
         }
         public void Chart()
@@ -116,21 +115,8 @@ namespace road_road.View
                 Values = new ChartValues<int>(AuthenticationService.WT(title))
             };
 
-            //adding series will update and animate the chart automatically
-
-            //SeriesCollection.Add(new ColumnSeries
-            //{
-            //    Title = "2023",
-            //    Values = new ChartValues<double> { 11, 56, 42, 0, 20 }
-            //});
-
             seriesCollection.Add(columnSeries);
             ChartGrid.Series = seriesCollection;
-
-
-            //also adding values updates and animates the chart automatically
-            //SeriesCollection[1].Values.Add(48d);
-
 
             var brigades = AuthenticationService.BrigadeID(title);
             string[] brigade = new string[brigades.Count()];
@@ -153,6 +139,13 @@ namespace road_road.View
             Registration registration = new Registration(this);
             registration.Show();
             
+        }
+
+        private void BT_exit_Click(object sender, RoutedEventArgs e)
+        {
+            Autorisation autorisation = new Autorisation();
+            autorisation.Show();
+            this.Close();
         }
     }
 }

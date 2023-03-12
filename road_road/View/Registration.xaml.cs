@@ -18,6 +18,7 @@ namespace road_road.View
             InitializeComponent();
             this.admin = admin;
             GenderID();
+            RoleID();
             
         }
 
@@ -28,23 +29,56 @@ namespace road_road.View
             foreach (var i in gender)
                 CB_gender.Items.Add(i.NameOfGender);
         }
+        private void RoleID()
+        {
+            var role = AuthenticationService.RoleID();
+
+            foreach (var i in role)
+                CB_role.Items.Add(i.NameOfRole);
+        }
         
 
-        private void But_reg(object sender, RoutedEventArgs e)
+        private void Add_But(object sender, RoutedEventArgs e)
         {
             if (AuthenticationService.Login_UQ(TB_login.Text.Trim()))
             {
-                Users user = new Users();
-                user.Login = TB_login.Text.Trim();
-                user.FirstName = TB_name.Text.Trim();
-                user.SecondName = TB_secondname.Text.Trim();
-                user.LastName = TB_patronomic.Text.Trim();
-                user.Password = TB_password.Text.Trim();
-
-                user.IdGender = CB_gender.SelectedIndex + 1;
-                AuthenticationService.Registration(user);
-                admin.Date_Users();
-                this.Close();
+                if (TB_login.Text == "")
+                {
+                    MessageBox.Show("Поле логин не заполненно");
+                }
+                else if (TB_firstname.Text == "")
+                {
+                    MessageBox.Show("Поле Имя не заполненно");
+                }
+                else if (TB_secondname.Text == "")
+                {
+                    MessageBox.Show("Поле Фамилия не заполненно");
+                }
+                else if (TB_password.Text == "")
+                {
+                    MessageBox.Show("Поле Пароль не заполненно");
+                }
+                else if (DP_DateOfBers.SelectedDate == null)
+                {
+                    MessageBox.Show("Поле Дата рождения не заполненно");
+                }
+                else
+                {
+                    Users user = new Users();
+                    user.Login = TB_login.Text.Trim();
+                    user.FirstName = TB_firstname.Text.Trim();
+                    user.SecondName = TB_secondname.Text.Trim();
+                    user.LastName = TB_lastname.Text.Trim();
+                    user.Password = TB_password.Text.Trim();
+                    user.IdGender = CB_gender.SelectedIndex + 1;
+                    user.IdRole = CB_role.SelectedIndex + 1;
+                    user.DateOfBers = DP_DateOfBers.SelectedDate;
+                    user.Telephone = TB_telephone.Text.Trim();
+                    user.EMail= TB_email.Text.Trim();
+                    AuthenticationService.Registration(user);
+                    admin.Date_Users();
+                    this.Close();
+                }
             }
             else
             {

@@ -8,17 +8,19 @@
         mc:Ignorable="d"
         Title="Главная" Height="531" Width="1224">
     <Grid>
+        
         <StackPanel Margin="0,0,1039,0">
             <Button x:Name="BT_people" Content="Пользователи" Margin="10,20,10,0" Cursor="Hand" Click="BT_people_Click" />
             <Button x:Name="BT_smena" Content="Наряды" Margin="10,10,10,0" Cursor="Hand" Click="BT_smena_Click" />
-            <Button x:Name="BT_report" Content="Отчёты" Margin="10,10,10,0" Cursor="Hand"  />
             <Button x:Name="BT_charts" Content="График" Margin="10,10,10,0" Click="BT_chart_Click" />
 
-            <Button x:Name="BT_AddUser" Content="Доб. пользователя" FontSize="12" Margin="10,10,10,0" Click="BT_add_Click" />
+            <Button x:Name="BT_AddUser" Content="Доб. пользователя" FontSize="12" Margin="10,10,10,0" VerticalAlignment="Bottom" Click="BT_add_Click"  />
+            <Button x:Name="BT_ToAutorisation" Content="Выйти из аккаунта" FontSize="13" Margin="10,10,10,0" VerticalAlignment="Bottom" Click="BT_exit_Click"  />
         </StackPanel>
 
         <Grid Margin="185,10,10,10" Visibility="Visible" Cursor="Hand">
-            <DataGrid x:Name="DG_people" IsReadOnly="False"  AutoGenerateColumns="False" SelectionChanged="DG_users" CanUserAddRows="False" CanUserDeleteRows="True">
+            
+            <DataGrid x:Name="DG_people" IsReadOnly="True"  AutoGenerateColumns="False" SelectionChanged="DG_users" CanUserAddRows="False" CanUserDeleteRows="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path = IdUser}" Header="id" Visibility="Hidden" />
                     <DataGridTextColumn Binding="{Binding Path = IdGender}" Header="id" Visibility="Hidden" />
@@ -41,8 +43,7 @@
         <Grid Margin="185,0,0,0" Visibility="Visible">
             <DataGrid x:Name="DG_smena">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
-                    <DataGridTextColumn Binding="{Binding firstname}" Header="Фамилия"/>
+                    
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -58,6 +59,7 @@
                     <lvc:Axis Title="Дней в год" LabelFormatter="{Binding Formatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
+            <Label Content="Количество отработанных дней за год" HorizontalAlignment="Left" Margin="440,0,0,0" VerticalAlignment="Top"/>
 
         </Grid>
 

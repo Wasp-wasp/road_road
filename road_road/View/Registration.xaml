@@ -4,34 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:road_road.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="registration" Height="415" Width="458">
+        Title="Добавление пользователя" Height="536" Width="283">
     <Grid>
-        <Label Content="Имя" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" Width="84"/>
-        <TextBox x:Name="TB_name" HorizontalAlignment="Left" Margin="32,56,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <TextBox x:Name="TB_firstname" HorizontalAlignment="Center" Margin="0,21,0,0" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_secondname" HorizontalAlignment="Center" Margin="0,63,0,0" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_lastname" HorizontalAlignment="Center" Margin="0,105,0,0" materialDesign:HintAssist.Hint="Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CB_gender" HorizontalAlignment="Center" Margin="0,147,0,0" SelectedItem="мужской" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="CB_role" HorizontalAlignment="Center" Margin="0,177,0,0"  SelectedItem="администратор" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_login" HorizontalAlignment="Center" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="0,207,0,0"/>
+        <TextBox x:Name="TB_password" HorizontalAlignment="Center" Margin="0,249,0,0" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_telephone" HorizontalAlignment="Center" Margin="0,333,0,0" materialDesign:HintAssist.Hint="Телефон" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB_email" HorizontalAlignment="Center" Margin="0,375,0,0" materialDesign:HintAssist.Hint="Электронная почта" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,426,0,0" VerticalAlignment="Top" Click="Add_But"/>
+        <DatePicker x:Name="DP_DateOfBers" Margin="74,291,74,0" VerticalAlignment="Top" Height="37"/>
 
-        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="32,86,0,0" VerticalAlignment="Top" Width="84"/>
-        <TextBox x:Name="TB_secondname" HorizontalAlignment="Left" Margin="32,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-
-        <Label Content="Отчество (при наличии)" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top" Width="145"/>
-        <TextBox x:Name="TB_patronomic" HorizontalAlignment="Left" Margin="32,169,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="32,199,0,0" VerticalAlignment="Top" Width="84"/>
-        <TextBox x:Name="TB_login" HorizontalAlignment="Left" Margin="32,228,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-
-        <Label Content="Пол" HorizontalAlignment="Left" Margin="250,27,0,0" VerticalAlignment="Top" Width="84"/>
-        <ComboBox x:Name="CB_gender" HorizontalAlignment="Left" Margin="250,56,0,0" Text="" VerticalAlignment="Top" Width="190" SelectedItem="мужской"/>
-
-        <Label Content="Почта" HorizontalAlignment="Left" Margin="250,86,0,0" VerticalAlignment="Top" Width="84"/>
-        <TextBox x:Name="TB_mail" HorizontalAlignment="Left" Margin="250,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="250,140,0,0" VerticalAlignment="Top" Width="84"/>
-        <TextBox x:Name="TB_password" HorizontalAlignment="Left" Margin="250,169,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-
-        <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="250,199,0,0" VerticalAlignment="Top" Width="125"/>
-        <TextBox x:Name="TB_password_sec" HorizontalAlignment="Left" Margin="250,228,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-
-        <Button Content="Зарегестрироваться" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Click="But_reg"/>
- 
     </Grid>
 </Window>
