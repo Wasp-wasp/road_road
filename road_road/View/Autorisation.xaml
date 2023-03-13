@@ -9,7 +9,7 @@
         Title="Вход" Height="296" Width="333">
     <Grid>
         <TextBox x:Name="L_login" HorizontalAlignment="Left" Margin="75,55,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="191"  Height="23"/>
-        <TextBox x:Name="L_password" HorizontalAlignment="Left" Margin="75,121,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" Height="23"/>
+        <PasswordBox x:Name="L_password" HorizontalAlignment="Left" Margin="75,121,0,0" VerticalAlignment="Top" Width="191" Height="23"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="75,20,0,0" VerticalAlignment="Top" Height="35" Width="69"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="75,84,0,0" VerticalAlignment="Top" Height="35" Width="81"/>
         <Button Content="Вход" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Height="28" Width="116" Click="BC_enter"/>

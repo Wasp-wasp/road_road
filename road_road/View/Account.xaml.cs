@@ -49,7 +49,7 @@ namespace road_road.View
 
         private void But_Edit_Click(object sender, RoutedEventArgs e)
         {
-            AdminWindow admin = new AdminWindow();
+            AdminWindow admin = new AdminWindow(log);
             admin.Show();
             this.Close();
         }

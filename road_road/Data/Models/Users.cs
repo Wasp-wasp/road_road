@@ -10,7 +10,7 @@ namespace road_road.Data.Models
     public partial class Users
     {
         public int IdUser { get; set; }
-        public int? IdRole { get; set; }
+        public int IdRole { get; set; }
         public int? IdGender { get; set; }
         public DateTime? DateOfBers { get; set; }
         public string SecondName { get; set; }

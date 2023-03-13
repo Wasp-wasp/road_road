@@ -20,31 +20,72 @@ namespace road_road.View
         public List<Users> users { get; set; }
         public List<Genders> genders { get; set; }
         public List<Roles> roles { get; set; }
+        string log;
+        int Role;
 
-        public AdminWindow()
+        public AdminWindow(string login)
         {
             InitializeComponent();
+            log = login;
+            Access();
             Date_Users();
+            Date_Tasks();
             CB_yearItem();
-            DG_smena.Visibility = Visibility.Hidden;
+            DG_task.Visibility = Visibility.Hidden;
             DG_chart.Visibility = Visibility.Hidden;
+            BT_AddTask.Visibility = Visibility.Hidden;
         }
+        public void Access()
+        {
+            var context = new DBContext();
+            var role = context.Users.Where(x => x.Login == log).Select(x => x.IdRole);
+            
+            if(Role == 2 ) 
+            {
+                DG_task.Visibility = Visibility.Visible;
+                DG_people.Visibility = Visibility.Hidden;
+                BT_people.Visibility = Visibility.Hidden;
+            }
+        }
+       
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
         {
             BT_AddUser.Visibility = Visibility.Visible;
             DG_chart.Visibility = Visibility.Hidden;
             DG_people.Visibility = Visibility.Visible;
-            DG_smena.Visibility = Visibility.Hidden;
-          
+            DG_task.Visibility = Visibility.Hidden;
+            BT_AddTask.Visibility = Visibility.Hidden;
         }
 
-        private void BT_smena_Click(object sender, RoutedEventArgs e)
+        private void BT_task_Click(object sender, RoutedEventArgs e)
         {   
             BT_AddUser.Visibility= Visibility.Hidden;
             DG_chart.Visibility = Visibility.Hidden;
             DG_people.Visibility = Visibility.Hidden;
-            DG_smena.Visibility = Visibility.Visible;
+            DG_task.Visibility = Visibility.Visible;
+            BT_AddTask.Visibility = Visibility.Visible;
+        }
+        public void Date_Tasks()
+        {
+            using (var context = new DBContext())
+            {
+                var tasks = context.Tasks.Select(x => new TaskViewModel
+                {
+                    DateBegin = x.DateTimeBegin,
+                    DateEnd = x.DateTimeEnd,
+                    NameTypeTask = x.IdTypeTaskNavigation.NameTypeTask,
+                    NameObject = x.IdObjectNavigation.NameOfObject,
+                    Town = x.IdPlaceNavigation.IdTownNavigation.NameOfTown,
+                    Highway = x.IdPlaceNavigation.IdHighwayNavigation.NameOfHighway,
+                    Street = x.IdPlaceNavigation.IdStreetNavigation.NameOfStreet,
+                    NameMaterial = x.IdMaterialNavigation.NameOfMaterial,
+                    NameTechnic = x.IdTechnicNavigation.IdTypeOfTechnicNavigation.NameTypeOfTechnic,
+                    NameBrigade = x.IdBrigadeNavigation.NameOfBrigade,
+                }).ToList();
+
+                DG_task.ItemsSource = tasks;
+            }
         }
 
         public void Date_Users()
@@ -99,8 +140,9 @@ namespace road_road.View
         {
             DG_chart.Visibility = Visibility.Visible;
             DG_people.Visibility = Visibility.Hidden;
-            DG_smena.Visibility = Visibility.Hidden;
+            DG_task.Visibility = Visibility.Hidden;
             BT_AddUser.Visibility = Visibility.Hidden;
+            BT_AddTask.Visibility = Visibility.Hidden;
             Chart();
         }
         public void Chart()
@@ -138,7 +180,6 @@ namespace road_road.View
         {
             Registration registration = new Registration(this);
             registration.Show();
-            
         }
 
         private void BT_exit_Click(object sender, RoutedEventArgs e)
@@ -146,6 +187,12 @@ namespace road_road.View
             Autorisation autorisation = new Autorisation();
             autorisation.Show();
             this.Close();
+        }
+
+        private void BT_addtask_Click(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration(this);
+            registration.Show();
         }
     }
 }

@@ -11,11 +11,12 @@
         
         <StackPanel Margin="0,0,1039,0">
             <Button x:Name="BT_people" Content="Пользователи" Margin="10,20,10,0" Cursor="Hand" Click="BT_people_Click" />
-            <Button x:Name="BT_smena" Content="Наряды" Margin="10,10,10,0" Cursor="Hand" Click="BT_smena_Click" />
+            <Button x:Name="BT_smena" Content="Наряды" Margin="10,10,10,0" Cursor="Hand" Click="BT_task_Click" />
             <Button x:Name="BT_charts" Content="График" Margin="10,10,10,0" Click="BT_chart_Click" />
 
-            <Button x:Name="BT_AddUser" Content="Доб. пользователя" FontSize="12" Margin="10,10,10,0" VerticalAlignment="Bottom" Click="BT_add_Click"  />
-            <Button x:Name="BT_ToAutorisation" Content="Выйти из аккаунта" FontSize="13" Margin="10,10,10,0" VerticalAlignment="Bottom" Click="BT_exit_Click"  />
+            <Button x:Name="BT_AddUser" Content="Доб. пользователя" FontSize="12" Margin="10,10,10,0" Click="BT_add_Click"  />
+            <Button x:Name="BT_AddTask" Content="Добавить наряд" Margin="10,10,10,0" Click="BT_addtask_Click"  />
+            <Button x:Name="BT_ToAutorisation" Content="Выйти из аккаунта" Margin="10,10,10,0" Click="BT_exit_Click"  />
         </StackPanel>
 
         <Grid Margin="185,10,10,10" Visibility="Visible" Cursor="Hand">
@@ -41,9 +42,18 @@
 
         </Grid>
         <Grid Margin="185,0,0,0" Visibility="Visible">
-            <DataGrid x:Name="DG_smena">
+            <DataGrid x:Name="DG_task" IsReadOnly="True"  AutoGenerateColumns="False" SelectionChanged="DG_users" CanUserAddRows="False" CanUserDeleteRows="True">
                 <DataGrid.Columns>
-                    
+                    <DataGridTextColumn Binding="{Binding Path = DateBegin, StringFormat='{}{0:dd/MM/yyyy}' }" Header="Дата начала наряда"/>
+                    <DataGridTextColumn Binding="{Binding Path = DateEnd, StringFormat='{}{0:dd/MM/yyyy}' }" Header="Дата окончания наряда"/>
+                    <DataGridTextColumn Binding="{Binding Path = NameTypeTask}" Header="Пит наряда"/>
+                    <DataGridTextColumn Binding="{Binding Path = NameObject}" Header="Объекта"/>
+                    <DataGridTextColumn Binding="{Binding Path = Town}" Header="Город"/>
+                    <DataGridTextColumn Binding="{Binding Path = Highway}" Header="Шоссе"/>
+                    <DataGridTextColumn Binding="{Binding Path = Street}" Header="Улица"/>
+                    <DataGridTextColumn Binding="{Binding Path = NameMaterial}" Header="Материал"/>
+                    <DataGridTextColumn Binding="{Binding Path = NameTechnic}" Header="Техника"/>
+                    <DataGridTextColumn Binding="{Binding Path = NameBrigade}" Header="Бригада"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
