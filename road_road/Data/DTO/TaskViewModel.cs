@@ -1,10 +1,12 @@
 ﻿using System;
+using road_road.Data.Models;
 
 
 namespace road_road.Data.DTO
 {
     class TaskViewModel
     {
+        public int IdTask { get; set; }
         public DateTime DateBegin { get; set; }
         public DateTime DateEnd { get; set; }
         public string NameTypeTask { get; set; }
@@ -15,5 +17,7 @@ namespace road_road.Data.DTO
         public string NameMaterial { get; set; }
         public string NameTechnic { get; set; }
         public string NameBrigade { get; set; }
+        public virtual Place IdPlaceNavigation { get; set; }
+
     }
 }

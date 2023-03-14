@@ -42,8 +42,9 @@
 
         </Grid>
         <Grid Margin="185,0,0,0" Visibility="Visible">
-            <DataGrid x:Name="DG_task" IsReadOnly="True"  AutoGenerateColumns="False" SelectionChanged="DG_users" CanUserAddRows="False" CanUserDeleteRows="True">
+            <DataGrid x:Name="DG_task" IsReadOnly="True"  AutoGenerateColumns="False" SelectionChanged="DG_tasks_select" CanUserAddRows="False" CanUserDeleteRows="True">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path = IdTask}" Header="Пит наряда" Visibility="Hidden"/>
                     <DataGridTextColumn Binding="{Binding Path = DateBegin, StringFormat='{}{0:dd/MM/yyyy}' }" Header="Дата начала наряда"/>
                     <DataGridTextColumn Binding="{Binding Path = DateEnd, StringFormat='{}{0:dd/MM/yyyy}' }" Header="Дата окончания наряда"/>
                     <DataGridTextColumn Binding="{Binding Path = NameTypeTask}" Header="Пит наряда"/>
@@ -61,7 +62,7 @@
         <Grid Margin="185,0,0,0" Visibility="Visible" x:Name="DG_chart">
             <ComboBox x:Name="CB_years" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" SelectedItem="2022" SelectionChanged="CB_yearsChange" Width="120"/>
 
-            <lvc:CartesianChart x:Name="ChartGrid" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="10,40,10,0">
+            <lvc:CartesianChart x:Name="ChartGrid" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="10,40,10,0" >
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Названия бригад" Labels="{Binding Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>

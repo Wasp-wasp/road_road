@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:road_road.View"
         mc:Ignorable="d"
-        Title="Добавление наряда" Height="450" Width="800">
+        Title="Добавление наряда" Height="450" Width="291">
     <Grid>
-        
+        <ComboBox x:Name="CB_TypeTask" HorizontalAlignment="Left" Margin="27,33,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="CB_NameObject" SelectedItem="Земля" HorizontalAlignment="Left" Margin="27,63,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="CB_Town" HorizontalAlignment="Left" Margin="27,93,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="CB_Street" HorizontalAlignment="Left" Margin="27,123,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="CB_HighWay" HorizontalAlignment="Left" Margin="27,153,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="CB_NameTechnic" HorizontalAlignment="Left" Margin="27,183,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="CB_NameBrigade" HorizontalAlignment="Left" Margin="27,213,0,0" VerticalAlignment="Top" Width="222"/>
+        <DatePicker x:Name="DP_DateBegin" VerticalAlignment="Top" Height="37" Margin="10,243,10,0"/>
+        <DatePicker x:Name="DP_DateEND"  VerticalAlignment="Top" Height="37" Margin="10,285,10,0"/>
+        <Button x:Name="EditTask" Content="Изменить" HorizontalAlignment="Left" Margin="48,327,0,0" VerticalAlignment="Top" Click="EditTask_Click"/>
+        <Button x:Name="DeleteTask" Content="Удалить" HorizontalAlignment="Left" Margin="150,327,0,0" VerticalAlignment="Top" Width="96" Click="DeleteTask_Click"/>
+
+
+
     </Grid>
 </Window>

@@ -39,6 +39,41 @@ namespace road_road.View
             var role = context.Roles.ToList();
             return role;
         }
+        public static IEnumerable<Towns> TownID()
+        {
+            var town = context.Towns.ToList();
+            return town;
+        }
+        public static IEnumerable<Streets> StreetID()
+        {
+            var street = context.Streets.ToList();
+            return street;
+        }
+        public static IEnumerable<Highways> HighWayID()
+        {
+            var highway = context.Highways.ToList();
+            return highway;
+        }
+        public static IEnumerable<Objects> ObjectID()
+        {
+            var nameObject = context.Objects.ToList();
+            return nameObject;
+        }
+        public static IEnumerable<Brigades> BrigadeID()
+        {
+            var brigade = context.Brigades.ToList();
+            return brigade;
+        }
+        public static IEnumerable<TypeTask> TypeTaskID()
+        {
+            var typeTask = context.TypeTask.ToList();
+            return typeTask;
+        }
+        public static IEnumerable<TypeOfTechnic> TechnicID()
+        {
+            var technic = context.TypeOfTechnic.ToList();
+            return technic;
+        }
 
         public static IEnumerable<string> BrigadeID(string title)
         {

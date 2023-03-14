@@ -16,7 +16,8 @@ namespace road_road.View
     /// </summary>
     public partial class AdminWindow : Window
     {
-        
+        static private DBContext context = new DBContext();
+
         public List<Users> users { get; set; }
         public List<Genders> genders { get; set; }
         public List<Roles> roles { get; set; }
@@ -35,19 +36,15 @@ namespace road_road.View
             DG_chart.Visibility = Visibility.Hidden;
             BT_AddTask.Visibility = Visibility.Hidden;
         }
-        public void Access()
+       
+        private void Access()
         {
-            var context = new DBContext();
             var role = context.Users.Where(x => x.Login == log).Select(x => x.IdRole);
-            
-            if(Role == 2 ) 
+            if (role.First() == 1)
             {
-                DG_task.Visibility = Visibility.Visible;
                 DG_people.Visibility = Visibility.Hidden;
-                BT_people.Visibility = Visibility.Hidden;
             }
         }
-       
 
         private void BT_people_Click(object sender, RoutedEventArgs e)
         {
@@ -70,8 +67,9 @@ namespace road_road.View
         {
             using (var context = new DBContext())
             {
-                var tasks = context.Tasks.Select(x => new TaskViewModel
+                var task = context.Tasks.Select(x => new TaskViewModel
                 {
+                    IdTask = x.IdTask,
                     DateBegin = x.DateTimeBegin,
                     DateEnd = x.DateTimeEnd,
                     NameTypeTask = x.IdTypeTaskNavigation.NameTypeTask,
@@ -82,9 +80,10 @@ namespace road_road.View
                     NameMaterial = x.IdMaterialNavigation.NameOfMaterial,
                     NameTechnic = x.IdTechnicNavigation.IdTypeOfTechnicNavigation.NameTypeOfTechnic,
                     NameBrigade = x.IdBrigadeNavigation.NameOfBrigade,
+                    IdPlaceNavigation = x.IdPlaceNavigation
                 }).ToList();
 
-                DG_task.ItemsSource = tasks;
+                DG_task.ItemsSource = task;
             }
         }
 
@@ -121,6 +120,17 @@ namespace road_road.View
                 Admin admin = new Admin(login, this);
                 admin.Show();
             }                
+        }
+
+        private void DG_tasks_select(object sender, SelectionChangedEventArgs e)
+        {
+            TaskViewModel selectedItem = (TaskViewModel)DG_task.SelectedItem;
+            if (selectedItem != null)
+            {
+                int id_task = selectedItem.IdTask;
+                AddTask addTask = new AddTask(id_task, this);
+                addTask.Show();
+            }
         }
 
         
